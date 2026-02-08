@@ -123,6 +123,76 @@ h4 {
     flex-wrap: wrap;
 }
 
+/* Banner Image Styling */
+.header {
+    position: relative;
+    overflow: hidden;
+}
+
+.header-banner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .header-banner {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-banner {
+        height: 150px;
+    }
+}
+
+
+/* Banner Image Styling */
+.header {
+    position: relative;
+    overflow: hidden;
+}
+
+.header-banner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .header-banner {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-banner {
+        height: 150px;
+    }
+}
+
+
 /* Cards */
 .card {
     background: var(--surface);
