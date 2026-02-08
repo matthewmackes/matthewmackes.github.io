@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Mackes - Developer Blog</title>
+    
+    <!-- Google Fonts - Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header elevation-4">
+        <div class="container">
+            <h1 class="header-title">Matthew Mackes</h1>
+            <p class="header-subtitle">Developer | Audio Engineer | Open Source Contributor</p>
+            <div class="header-actions">
+                <a href="https://www.linkedin.com/in/matthewmackes/" target="_blank" class="btn-flat">
+                    <span class="material-icons">business_center</span>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/matthewmackes" target="_blank" class="btn-flat">
+                    <span class="material-icons">code</span>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container main-content">
+        
+        <!-- About Section -->
+        <section class="card elevation-2">
+            <div class="card-content">
+                <h2 class="section-title">
+                    <span class="material-icons">person</span>
+                    About Me
+                </h2>
+                <p class="body-text">
+                    I'm a passionate developer focused on building professional-grade audio processing solutions. 
+                    With expertise spanning embedded systems, web technologies, and real-time audio, I create 
+                    tools that bridge the gap between software flexibility and hardware reliability.
+                </p>
+                <p class="body-text">
+                    Currently, I'm developing MAP2 (Modular Audio Processor 2), a next-generation audio processing 
+                    platform designed for musicians and audio engineers who demand professional quality and 
+                    complete control over their sound.
+                </p>
+                <a href="https://www.linkedin.com/in/matthewmackes/" target="_blank" class="btn-primary">
+                    View Full Profile
+                    <span class="material-icons">arrow_forward</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Featured Project Section -->
+        <section class="card elevation-2">
+            <div class="card-content">
+                <h2 class="section-title">
+                    <span class="material-icons">workspace_premium</span>
+                    Featured Project: MAP2
+                </h2>
+                <h3 class="subsection-title">Modular Audio Processor 2</h3>
+                
+                <div class="project-highlight">
+                    <h4 class="highlight-title">Triple-Interface Architecture</h4>
+                    <p class="body-text">
+                        What truly sets MAP2 apart is its triple-interface architecture, ensuring accessibility in any 
+                        environment. Musicians can control the platform through a web-based dashboard built with 
+                        React/TypeScript for remote or desktop access, a sophisticated Terminal User Interface (TUI) 
+                        using the Textual framework for headless server environments, or a dedicated LCD display system 
+                        (I2C/Serial) for hardware-like control surfaces inspired by high-end processors like the Kemper 
+                        Profiler and Line 6 Helix. Each interface provides real-time monitoring, effect chain editing, 
+                        preset management, and system status visibility, synchronized across all modes via the event bus 
+                        and WebSocket streaming for live updates.
+                    </p>
+                </div>
+
+                <div class="project-highlight">
+                    <h4 class="highlight-title">Professional-Grade Audio Processing</h4>
+                    <p class="body-text">
+                        The audio processing capabilities are comprehensive and professional-grade. The native processor 
+                        library includes dynamics (compressor, limiter, noise gate), EQ (8-band parametric), convolution 
+                        for impulse responses, and spectrum analysis for metering. Beyond these, MAP2 leverages the 
+                        thriving LV2 plugin ecosystem, allowing users to load virtually any Linux audio plugin, and 
+                        features Neural Amp Modeling (NAM) for authentic amp and pedal emulation using AI-generated 
+                        profiles. The MIDI system is equally sophisticated, offering full keyboard/controller mapping 
+                        with MIDI learn, program change support, note binding, and CC mapping—making hardware controllers 
+                        feel like first-class citizens in the platform.
+                    </p>
+                </div>
+
+                <div class="project-highlight">
+                    <h4 class="highlight-title">Enterprise-Grade Reliability</h4>
+                    <p class="body-text">
+                        Under the hood, MAP2 prioritizes reliability and observability with enterprise-grade features 
+                        that make it production-ready. The system includes comprehensive health monitoring with 
+                        configurable thresholds for temperature, CPU, memory, and disk usage; automated cluster discovery 
+                        via mDNS; graceful fallback mechanisms for network failures; and Prometheus-compatible metrics 
+                        export for integration with monitoring stacks. Session backup and restore functionality uses 7z 
+                        compression with incremental backup support, while the event system provides a persistent, 
+                        distributed pub/sub model with SQLite backing and WebSocket broadcasting. Whether you're recording 
+                        your first home studio session or managing a complex live sound setup, MAP2 delivers the stability, 
+                        flexibility, and professional audio quality that serious musicians demand.
+                    </p>
+                </div>
+
+                <div class="project-tech-stack">
+                    <h4 class="highlight-title">Technology Stack</h4>
+                    <div class="tech-chips">
+                        <span class="chip">Python</span>
+                        <span class="chip">React</span>
+                        <span class="chip">TypeScript</span>
+                        <span class="chip">LV2 Plugins</span>
+                        <span class="chip">MIDI</span>
+                        <span class="chip">WebSocket</span>
+                        <span class="chip">Textual</span>
+                        <span class="chip">Prometheus</span>
+                        <span class="chip">SQLite</span>
+                        <span class="chip">Neural Amp Modeling</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Deep Dive Section -->
+        <section class="card elevation-2">
+            <div class="card-content">
+                <h2 class="section-title">
+                    <span class="material-icons">architecture</span>
+                    Technical Deep Dive: Core System, Node Design & Scalability
+                </h2>
+                
+                <div class="project-highlight">
+                    <h4 class="highlight-title">🎵 Core System Architecture</h4>
+                    
+                    <p class="body-text"><strong>The Three-Layer Foundation</strong></p>
+                    <ul class="technical-list">
+                        <li><strong>JUCE C++ Audio Engine</strong> - Real-time DSP processing with deterministic performance (512-sample buffer, &lt;10ms latency)</li>
+                        <li><strong>FastAPI Python Backend</strong> - Async orchestration handling all the management tasks without interrupting audio</li>
+                        <li><strong>Modular Service Ecosystem</strong> - Specialized services working together seamlessly</li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>How It All Starts (Startup Sequence)</strong></p>
+                    <ul class="technical-list">
+                        <li>✅ Health metrics initialize</li>
+                        <li>✅ Database connection pool boots up (10 connections, 20 overflow)</li>
+                        <li>✅ Audio engine validates configuration</li>
+                        <li>✅ Plugin scanning & discovery</li>
+                        <li>✅ JACK/ALSA audio I/O initialization</li>
+                        <li>✅ MIDI system comes online</li>
+                        <li>✅ WebSocket manager ready for real-time updates</li>
+                        <li>✅ LCD manager (if hardware present)</li>
+                        <li>✅ Event bus fires up with 5 producer types</li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>Audio Thread Safety (The Golden Rule)</strong></p>
+                    <ul class="technical-list">
+                        <li>🔒 Audio thread NEVER blocks for management tasks</li>
+                        <li>🔒 DSP load stays &lt;1% overhead</li>
+                        <li>🔒 Metrics pushed only every 60 seconds (not continuously)</li>
+                        <li>🔒 All I/O is non-blocking</li>
+                        <li>🔒 Database operations happen async, never in audio thread</li>
+                    </ul>
+                </div>
+
+                <div class="project-highlight">
+                    <h4 class="highlight-title">🖥️ Node Design & Role Assignment</h4>
+                    
+                    <p class="body-text"><strong>What Makes a Node Unique</strong></p>
+                    <ul class="technical-list">
+                        <li><strong>Immutable Identity</strong> - UUID + MAC address combo (can't change)</li>
+                        <li><strong>Auto Role Assignment</strong> - Based on hardware capabilities (CPU, GPU, audio interfaces)</li>
+                        <li><strong>Mutable Status</strong> - Online, Offline, Degraded, Updating, Recovering, Failed, Initializing</li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>Node Roles (Smart Assignment)</strong></p>
+                    <ul class="technical-list">
+                        <li><strong>Audio Node</strong> - The workhorse! Runs DSP, hosts plugins, handles MIDI</li>
+                        <li><strong>Management Node</strong> - The conductor! Orchestrates cluster, manages other nodes</li>
+                        <li><strong>Standby Management</strong> - The backup! Ready to take over if primary fails</li>
+                        <li><strong>Frontend Only</strong> - Dashboard access, no audio processing</li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>Hardware Auto-Detection</strong></p>
+                    <ul class="technical-list">
+                        <li>CPU cores & model name</li>
+                        <li>Total & available memory</li>
+                        <li>Kernel & OS version (Fedora)</li>
+                        <li>Audio interfaces (Edirol, Hotone, JACK devices)</li>
+                        <li>Network interfaces & MAC addresses</li>
+                        <li>GPU presence & model (if available)</li>
+                        <li>Storage capacity</li>
+                        <li>DSP load & xrun count</li>
+                        <li>Uptime tracking</li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>Why This Design is Awesome</strong></p>
+                    <ul class="technical-list">
+                        <li>✨ No manual configuration needed</li>
+                        <li>✨ Plug-and-play new nodes</li>
+                        <li>✨ System knows what each node can do</li>
+                        <li>✨ Optimal assignment decisions based on real hardware</li>
+                        <li>✨ Health monitoring tailored to node type</li>
+                    </ul>
+                </div>
+
+                <div class="project-highlight">
+                    <h4 class="highlight-title">🌐 Cluster Communication & Coordination</h4>
+                    
+                    <p class="body-text"><strong>Discovery (Automatic Neighbor Finding)</strong></p>
+                    <ul class="technical-list">
+                        <li>🔍 mDNS announces node presence automatically</li>
+                        <li>🔍 No DNS or IP configuration required</li>
+                        <li>🔍 Nodes find each other on the local network</li>
+                        <li>🔍 Works across different subnets with proper setup</li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>Real-Time Updates (WebSocket Magic)</strong></p>
+                    <ul class="technical-list">
+                        <li>⚡ Health overviews every 2 seconds</li>
+                        <li>⚡ Disk health every 5 seconds</li>
+                        <li>⚡ &lt;100ms latency (vs 2-5 seconds with polling)</li>
+                        <li>⚡ Auto-reconnection with exponential backoff</li>
+                        <li>⚡ Graceful fallback to polling if WebSocket fails</li>
+                        <li>⚡ <strong>Saves 78% bandwidth</strong> compared to constant polling</li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>State Synchronization</strong></p>
+                    <ul class="technical-list">
+                        <li>📡 Event bus with SQLite backing</li>
+                        <li>📡 MIDI parameters sync across nodes</li>
+                        <li>📡 Preset changes broadcast to all redundant copies</li>
+                        <li>📡 Configuration updates propagate automatically</li>
+                        <li>📡 Everything via WebSocket for instant delivery</li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>Configuration Management</strong></p>
+                    <ul class="technical-list">
+                        <li>📋 Fedora-standard INI files in map2</li>
+                        <li>📋 Push-based deployment (fast)</li>
+                        <li>📋 2-minute fallback to pull (safe)</li>
+                        <li>📋 DNF package manager for consistency</li>
+                        <li>📋 Systemd timers for automation</li>
+                    </ul>
+                </div>
+
+                <div class="project-highlight">
+                    <h4 class="highlight-title">🎸 Multi-Node Flow Deployment & Redundancy</h4>
+                    
+                    <p class="body-text"><strong>How Flows Work (Simple & Elegant)</strong></p>
+                    <ul class="technical-list">
+                        <li>Complete effects chains run on single dedicated nodes</li>
+                        <li>No inter-node audio routing (keeps it simple!)</li>
+                        <li>Management node assigns flows based on:
+                            <ul class="technical-sublist">
+                                <li>Available CPU</li>
+                                <li>GPU presence</li>
+                                <li>Hardware specialization</li>
+                                <li>Latency to management node</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>Built-In Redundancy (No Single Point of Failure)</strong></p>
+                    <ul class="technical-list">
+                        <li>🔄 Standby nodes run passive copies of flows</li>
+                        <li>🔄 &lt;30 second automatic failover on primary failure</li>
+                        <li>🔄 Heartbeat monitoring detects issues instantly</li>
+                        <li>🔄 Per-flow metrics show what's happening</li>
+                        <li>🔄 Optional (you choose which flows need it)</li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>The Control Dashboard</strong></p>
+                    <ul class="technical-list">
+                        <li>📊 See all nodes at a glance</li>
+                        <li>📊 See all active flows</li>
+                        <li>📊 Assignment matrix shows what's where</li>
+                        <li>📊 One-click actions: assign, failover, rebalance, maintain</li>
+                        <li>📊 Single pane of glass from any node</li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>Why We Skipped Complex Solutions</strong></p>
+                    <ul class="technical-list">
+                        <li>✗ No Raft consensus (too complex)</li>
+                        <li>✗ No NetJACK2 (audio over network = latency hell)</li>
+                        <li>✓ Humans assign flows explicitly</li>
+                        <li>✓ System handles state sync automatically</li>
+                        <li>✓ Simple, proven, debuggable</li>
+                    </ul>
+                </div>
+
+                <div class="project-highlight">
+                    <h4 class="highlight-title">📈 Scalability & Operational Maturity</h4>
+                    
+                    <p class="body-text"><strong>From 1 to 100+ Nodes (No Sweat)</strong></p>
+                    <ul class="technical-list">
+                        <li>🚀 SQLite CMDB supports 1,000+ nodes</li>
+                        <li>🚀 WAL mode allows concurrent access</li>
+                        <li>🚀 Can migrate to PostgreSQL later (SQLAlchemy abstraction)</li>
+                        <li>🚀 Metrics bucketed in 7-day rolling windows</li>
+                        <li>🚀 Data aggregated every 30 seconds (not continuous)</li>
+                        <li>🚀 Old data archived/purged (database stays bounded)</li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>Zero-Touch Provisioning (Hands-Free Setup)</strong></p>
+                    <ul class="technical-list">
+                        <li>🤖 Fresh Fedora box → cluster member automatically</li>
+                        <li>🤖 No SSH, no manual config needed</li>
+                        <li>🤖 Systemd services handle everything</li>
+                        <li>🤖 First boot detects hardware & role</li>
+                        <li>🤖 Joins cluster via mDNS discovery</li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>Disaster Recovery (Sleep Well at Night)</strong></p>
+                    <ul class="technical-list">
+                        <li>💾 30-day rolling backup windows</li>
+                        <li>💾 Incremental backups (fast & efficient)</li>
+                        <li>💾 Rapid restoration of config & state</li>
+                        <li>💾 Tested recovery procedures</li>
+                        <li>💾 Documented runbooks</li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>Failure Handling (Smart, Not Silly)</strong></p>
+                    <ul class="technical-list">
+                        <li>🛡️ Circuit breaker pattern prevents cascade failures</li>
+                        <li>🛡️ Failed node health scores drop automatically</li>
+                        <li>🛡️ System isolates problematic nodes</li>
+                        <li>🛡️ No stuck node can destabilize cluster</li>
+                        <li>🛡️ Graceful degradation (continue without failed node)</li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>Monitoring & Observability</strong></p>
+                    <ul class="technical-list">
+                        <li>📊 Prometheus-compatible metrics export</li>
+                        <li>📊 Integrates with external monitoring stacks</li>
+                        <li>📊 CLI tools for component testing</li>
+                        <li>📊 TUI + Web interfaces for visibility</li>
+                        <li>📊 Comprehensive logging throughout</li>
+                    </ul>
+                    
+                    <p class="body-text"><strong>What Makes Operations Easy</strong></p>
+                    <ul class="technical-list">
+                        <li>📝 Comprehensive documentation</li>
+                        <li>📝 Minimal training required</li>
+                        <li>📝 50+ node clusters manageable by small teams</li>
+                        <li>📝 CLI for automation</li>
+                        <li>📝 Web UI for humans</li>
+                        <li>📝 TUI for headless servers</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Updates Section -->
+        <section class="card elevation-2">
+            <div class="card-content">
+                <h2 class="section-title">
+                    <span class="material-icons">update</span>
+                    Recent Repository Updates
+                </h2>
+                <p class="caption">Last checked: <span id="last-update-time">Loading...</span></p>
+                
+                <div id="updates-container" class="updates-list">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Loading recent updates...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="body-text">© 2026 Matthew Mackes. Built with Material Design.</p>
+            <p class="caption">Auto-updated hourly with the latest repository changes.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/site.js"></script>
+</body>
+</html>

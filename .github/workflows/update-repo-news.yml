@@ -1,0 +1,153 @@
+name: Update Repository News
+
+on:
+  schedule:
+    # Run every hour at minute 0
+    - cron: '0 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  update-repo-news:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for better analysis
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests PyGithub
+      
+      - name: Fetch repository updates
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_OWNER: matthewmackes
+          REPO_NAME: matthewmackes
+        run: |
+          python << 'EOF'
+          import os
+          import json
+          import requests
+          from datetime import datetime, timedelta
+          from github import Github
+          
+          # Initialize GitHub client
+          token = os.environ['GITHUB_TOKEN']
+          repo_owner = os.environ['REPO_OWNER']
+          repo_name = os.environ['REPO_NAME']
+          
+          g = Github(token)
+          repo = g.get_repo(f"{repo_owner}/{repo_name}")
+          
+          # Get updates from the past 24 hours
+          since = datetime.utcnow() - timedelta(hours=24)
+          updates = []
+          
+          try:
+              # Get recent commits
+              commits = repo.get_commits(since=since)
+              for commit in commits[:10]:  # Limit to 10 most recent
+                  updates.append({
+                      'type': 'commit',
+                      'message': commit.commit.message.split('\n')[0],  # First line only
+                      'author': commit.commit.author.name,
+                      'timestamp': commit.commit.author.date.isoformat(),
+                      'sha': commit.sha,
+                      'url': commit.html_url
+                  })
+          except Exception as e:
+              print(f"Error fetching commits: {e}")
+          
+          try:
+              # Get recent releases
+              releases = repo.get_releases()
+              for release in releases[:5]:  # Limit to 5 most recent
+                  release_date = release.created_at
+                  if release_date > since:
+                      updates.append({
+                          'type': 'release',
+                          'message': f"Released {release.tag_name}: {release.name or 'New release'}",
+                          'author': release.author.login if release.author else 'Unknown',
+                          'timestamp': release_date.isoformat(),
+                          'url': release.html_url
+                      })
+          except Exception as e:
+              print(f"Error fetching releases: {e}")
+          
+          try:
+              # Get recent issues (opened)
+              issues = repo.get_issues(state='all', since=since, sort='created', direction='desc')
+              for issue in issues[:5]:  # Limit to 5 most recent
+                  if not issue.pull_request:  # Exclude PRs
+                      updates.append({
+                          'type': 'issue',
+                          'message': f"Issue #{issue.number}: {issue.title}",
+                          'author': issue.user.login,
+                          'timestamp': issue.created_at.isoformat(),
+                          'url': issue.html_url
+                      })
+          except Exception as e:
+              print(f"Error fetching issues: {e}")
+          
+          try:
+              # Get recent pull requests
+              pulls = repo.get_pulls(state='all', sort='created', direction='desc')
+              for pr in pulls[:5]:  # Limit to 5 most recent
+                  if pr.created_at > since:
+                      updates.append({
+                          'type': 'pr',
+                          'message': f"PR #{pr.number}: {pr.title}",
+                          'author': pr.user.login,
+                          'timestamp': pr.created_at.isoformat(),
+                          'url': pr.html_url
+                      })
+          except Exception as e:
+              print(f"Error fetching pull requests: {e}")
+          
+          # Sort updates by timestamp (most recent first)
+          updates.sort(key=lambda x: x['timestamp'], reverse=True)
+          
+          # Limit to top 20 updates
+          updates = updates[:20]
+          
+          # Create the output data
+          output = {
+              'last_updated': datetime.utcnow().isoformat(),
+              'repository': f"{repo_owner}/{repo_name}",
+              'updates': updates
+          }
+          
+          # Ensure data directory exists
+          os.makedirs('data', exist_ok=True)
+          
+          # Write to JSON file
+          with open('data/repo-updates.json', 'w') as f:
+              json.dump(output, f, indent=2)
+          
+          print(f"Successfully fetched {len(updates)} updates")
+          print(json.dumps(output, indent=2))
+          EOF
+      
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/repo-updates.json
+          
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update repository news [automated]"
+            git push
+          fi

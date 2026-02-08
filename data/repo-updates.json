@@ -1,0 +1,13 @@
+{
+  "last_updated": "2026-02-07T00:00:00Z",
+  "repository": "matthewmackes/matthewmackes",
+  "updates": [
+    {
+      "type": "commit",
+      "message": "Initial blog setup with Material Design",
+      "author": "Matthew Mackes",
+      "timestamp": "2026-02-07T00:00:00Z",
+      "sha": "initial"
+    }
+  ]
+}
