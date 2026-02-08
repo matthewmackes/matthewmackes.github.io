@@ -1,0 +1,15 @@
+.DS_Store
+.bundle/
+.jekyll-cache/
+_site/
+node_modules/
+.env
+.env.local
+temp_project/
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.log
+dist/

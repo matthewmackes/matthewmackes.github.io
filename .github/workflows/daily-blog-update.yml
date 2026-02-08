@@ -1,0 +1,49 @@
+name: Daily Blog Update
+
+on:
+  schedule:
+    # Run daily at 9 AM UTC (customize time as needed)
+    - cron: '0 9 * * *'
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  update-blog:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install frontmatter PyGithub
+      
+      - name: Run AI-powered update analysis
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/daily_update.sh
+        continue-on-error: true
+      
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+      
+      - name: Commit and push updates
+        run: |
+          if [[ $(git status _posts/ 2>/dev/null | wc -l) -gt 0 ]]; then
+            git add _posts/
+            git commit -m "🤖 AI Update: map2-audio project analysis - $(date +'%Y-%m-%d')"
+            git push origin main
+            echo "✅ New posts created and pushed"
+          else
+            echo "ℹ️ No new updates to commit"
+          fi

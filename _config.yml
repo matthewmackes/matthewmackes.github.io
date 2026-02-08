@@ -1,0 +1,37 @@
+title: Daily Project Updates
+email: your-email@example.com
+description: Daily updates and outputs from GitHub projects
+baseurl: ""
+url: "https://YOUR-USERNAME.github.io"
+twitter_username: your-twitter
+github_username: YOUR-USERNAME
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Collections for blog posts
+collections:
+  posts:
+    output: true
+    permalink: /:collection/:year/:month/:day/:slug/
+
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
+
+# Markdown processor
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Default front matter
+defaults:
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+      author: "Automated Bot"
