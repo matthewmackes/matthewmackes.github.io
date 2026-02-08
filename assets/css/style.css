@@ -2,22 +2,22 @@
 /* Using Google Roboto Fonts and Material Design principles */
 
 :root {
-    /* Material Design Colors */
-    --primary-color: #1976D2;
-    --primary-dark: #1565C0;
-    --primary-light: #BBDEFB;
-    --accent-color: #FF4081;
-    --text-primary: #212121;
-    --text-secondary: #757575;
-    --divider-color: #BDBDBD;
-    --background: #FAFAFA;
-    --surface: #FFFFFF;
+    /* Material Design 900 Colors - Deep, Professional Palette */
+    --primary-color: #0D47A1;
+    --primary-dark: #051C73;
+    --primary-light: #5E35B1;
+    --accent-color: #B71C1C;
+    --text-primary: #0D0D0D;
+    --text-secondary: #424242;
+    --divider-color: #616161;
+    --background: #121212;
+    --surface: #1E1E1E;
     
     /* Elevation Shadows */
-    --elevation-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    --elevation-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    --elevation-4: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    --elevation-8: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    --elevation-1: 0 1px 3px rgba(0,0,0,0.30), 0 1px 2px rgba(0,0,0,0.40);
+    --elevation-2: 0 3px 6px rgba(0,0,0,0.40), 0 3px 6px rgba(0,0,0,0.50);
+    --elevation-4: 0 10px 20px rgba(0,0,0,0.50), 0 6px 6px rgba(0,0,0,0.60);
+    --elevation-8: 0 14px 28px rgba(0,0,0,0.60), 0 10px 10px rgba(0,0,0,0.70);
     
     /* Spacing */
     --spacing-xs: 4px;
@@ -99,7 +99,7 @@ h4 {
 
 /* Header */
 .header {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, #0D47A1 0%, #051C73 100%);
     color: white;
     padding: var(--spacing-xl) 0;
     margin-bottom: var(--spacing-xl);
