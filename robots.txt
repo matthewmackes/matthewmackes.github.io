@@ -1,0 +1,10 @@
+# Robots.txt for matthewmackes.github.io
+User-agent: *
+Allow: /
+Disallow: /.nojekyll
+
+# Sitemaps
+Sitemap: https://matthewmackes.github.io/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
