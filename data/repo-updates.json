@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-08T23:35:58.357230",
+  "last_updated": "2026-02-09T02:35:39.365448",
   "repository": "matthewmackes/matthewmackes",
   "updates": [
     {
@@ -9,22 +9,6 @@
       "timestamp": "2026-02-08T09:34:06+00:00",
       "sha": "a1eaab677a3642ec4857922ec224d2932e648a16",
       "url": "https://github.com/matthewmackes/matthewmackes/commit/a1eaab677a3642ec4857922ec224d2932e648a16"
-    },
-    {
-      "type": "commit",
-      "message": "Push",
-      "author": "Matthew Mackes",
-      "timestamp": "2026-02-08T02:15:34+00:00",
-      "sha": "493883a12bb74a4560e898a536f69563b18fc8a6",
-      "url": "https://github.com/matthewmackes/matthewmackes/commit/493883a12bb74a4560e898a536f69563b18fc8a6"
-    },
-    {
-      "type": "commit",
-      "message": "Initial commit",
-      "author": "Matthew Mackes",
-      "timestamp": "2026-02-08T01:03:38+00:00",
-      "sha": "aee519a0fdf914f4209ea964b7a26408c916a72f",
-      "url": "https://github.com/matthewmackes/matthewmackes/commit/aee519a0fdf914f4209ea964b7a26408c916a72f"
     }
   ]
 }
