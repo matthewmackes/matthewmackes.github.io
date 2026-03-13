@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-13T09:43:11.257337",
+  "last_updated": "2026-03-13T10:41:35.088482",
   "repository": "matthewmackes/matthewmackes",
   "updates": [
     {
@@ -9,14 +9,6 @@
       "timestamp": "2026-03-13T09:41:37+00:00",
       "sha": "10aae6dd451b9a125d771f8cb64a7dacb97adfa8",
       "url": "https://github.com/matthewmackes/matthewmackes/commit/10aae6dd451b9a125d771f8cb64a7dacb97adfa8"
-    },
-    {
-      "type": "commit",
-      "message": "chore: refresh GitHub stats",
-      "author": "GitHub Action",
-      "timestamp": "2026-03-12T09:47:24+00:00",
-      "sha": "e5fd28e7a5ce1ece17e8124d53ffabd31336604c",
-      "url": "https://github.com/matthewmackes/matthewmackes/commit/e5fd28e7a5ce1ece17e8124d53ffabd31336604c"
     }
   ]
 }
