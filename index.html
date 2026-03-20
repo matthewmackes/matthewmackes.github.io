@@ -131,6 +131,9 @@
               <a class="button button--secondary" href="https://github.com/matthewmackes/map2-audio" target="_blank" rel="noreferrer">
                 View MAP2 source
               </a>
+              <a class="button button--secondary" href="#top-100-features">
+                Top 100 features
+              </a>
               <a class="button button--secondary" href="https://github.com/matthewmackes/matthewmackes.github.io" target="_blank" rel="noreferrer">
                 View this site
               </a>
@@ -138,6 +141,140 @@
                 LinkedIn
               </a>
             </div>
+            <details class="top-features-panel" id="top-100-features">
+              <summary class="top-features-panel__summary">
+                <span>Top 100 features</span>
+                <span class="top-features-panel__hint">Click to reveal the full MAP2 feature inventory</span>
+              </summary>
+              <div class="top-features-panel__content">
+                <div class="top-features-grid">
+                  <section class="top-features-group">
+                    <span class="eyebrow">1-35</span>
+                    <h3>Guitar, effects, MIDI and hardware control</h3>
+                    <ol class="top-features-list">
+                      <li><strong>Neural Amp Modeler (NAM) Integration:</strong> Utilizes AI for hyper-realistic guitar and bass amplifier simulations.</li>
+                      <li><strong>Impulse Response (IR) Convolution Engine:</strong> Load, manage, and use custom IR files for cabinet, speaker, and room simulation.</li>
+                      <li><strong>Studio-Grade Effects Suite:</strong> Comprehensive collection of built-in effects for complete signal chain construction.</li>
+                      <li><strong>Vintage Amp Emulations:</strong> Includes classic models such as the S1S0 and Hood Tweed Bassman.</li>
+                      <li><strong>Advanced Modulation and Pitch Effects:</strong> Ultra-Harmonizer, Poly Shifter, and ambient Shoe Gaze processors.</li>
+                      <li><strong>Full Dynamics Suite:</strong> Built-in Compressor, Limiter, Noise Gate, and Expander.</li>
+                      <li><strong>Time-Based Effects:</strong> High-quality Chorus, Phaser, Flanger, Delay, and Reverb processors.</li>
+                      <li><strong>Comprehensive Filtering:</strong> Parametric EQs, Graphic EQs, High-Pass Filters, and Low-Pass Filters.</li>
+                      <li><strong>LV2 Plugin Host:</strong> Natively supports and hosts third-party LV2 plugins for near-limitless tonal expansion.</li>
+                      <li><strong>Dual Processing Chains:</strong> Run two fully independent effects chains in parallel for complex routing.</li>
+                      <li><strong>A/B Chain Morphing:</strong> Seamlessly crossfade and interpolate parameters between two distinct chains.</li>
+                      <li><strong>Series and Parallel Path Routing:</strong> Split and merge the signal path within a chain for advanced effects blending.</li>
+                      <li><strong>Plugin Preset Management:</strong> Save, load, and manage presets for individual plugins.</li>
+                      <li><strong>Chain Snapshots:</strong> Save and recall the entire state of a signal path, including all plugins and their settings.</li>
+                      <li><strong>MIDI Learn Functionality:</strong> Instantly map any MIDI CC message to any plugin parameter for hands-free control.</li>
+                      <li><strong>Non-Consumptive MIDI CC Processing:</strong> CC messages pass through all plugins, allowing one controller to modulate multiple effects.</li>
+                      <li><strong>MIDI CC Fan-Out:</strong> A single MIDI controller can be mapped to and control parameters on multiple different plugins simultaneously.</li>
+                      <li><strong>Series MIDI Flow Architecture:</strong> MIDI messages flow sequentially through the plugin chain by default.</li>
+                      <li><strong>Parallel MIDI Branching:</strong> Split a single MIDI input to control multiple instruments or effects in parallel.</li>
+                      <li><strong>MIDI Program Change Support:</strong> For preset and chain switching from external MIDI controllers.</li>
+                      <li><strong>Hardware LCD Multi-Page UI:</strong> Standalone interface inspired by high-end processors like Kemper, Helix, and Axe-FX.</li>
+                      <li><strong>Standalone Operation via LCD:</strong> Full control without a connected computer, ideal for live performance.</li>
+                      <li><strong>LCD Status Page:</strong> At-a-glance view of sample rate, buffer size, CPU load, and the active chain name.</li>
+                      <li><strong>LCD VU Meters Page:</strong> Real-time stereo level meters with peak-hold functionality and configurable color zones.</li>
+                      <li><strong>LCD Chain Page:</strong> Visually displays the current effects chain with a scrollable list of active plugins.</li>
+                      <li><strong>LCD Plugin Browser:</strong> Scroll through all available LV2 plugins and view their bypass status directly on the hardware.</li>
+                      <li><strong>LCD MIDI Activity Page:</strong> Monitor connected MIDI devices and see real-time message activity.</li>
+                      <li><strong>LCD Performance Page:</strong> Detailed, real-time metrics for CPU load, xruns, and audio callback times.</li>
+                      <li><strong>Hardware Rotary Encoder Support:</strong> Navigate menus, scroll lists, and adjust parameters with a physical knob.</li>
+                      <li><strong>Hardware Navigation Button Support:</strong> Dedicated GPIO inputs for Up, Down, Select, Menu, and Back buttons.</li>
+                      <li><strong>Dual LCD Display Support:</strong> Power two separate hardware displays for expanded information views.</li>
+                      <li><strong>Custom LCD Characters:</strong> Renders graphical VU meter bars and status icons.</li>
+                      <li><strong>LCD Backlight Control:</strong> Software-controllable backlight for the hardware display.</li>
+                      <li><strong>LCD Screensaver:</strong> Prevents screen burn-in during idle periods.</li>
+                      <li><strong>Hot-Swappable MIDI Devices:</strong> Connect and disconnect MIDI controllers without restarting the audio engine.</li>
+                    </ol>
+                  </section>
+                  <section class="top-features-group">
+                    <span class="eyebrow">36-52</span>
+                    <h3>Core audio and performance</h3>
+                    <ol class="top-features-list" start="36">
+                      <li><strong>Ultra-Low Latency Audio Engine:</strong> JUCE 8.0-based core delivers sub-3ms round-trip latency on optimized hardware.</li>
+                      <li><strong>Real-time SCHED_FIFO Processing:</strong> Audio threads run at the highest real-time priority for maximum stability.</li>
+                      <li><strong>CPU Core Isolation:</strong> Dedicates specific CPU cores exclusively to audio processing, preventing OS interference.</li>
+                      <li><strong>Memory Locking:</strong> Prevents page faults on the real-time audio thread, eliminating potential glitches.</li>
+                      <li><strong>PipeWire-Native with JACK Compatibility:</strong> Modern, flexible audio backend for seamless Linux integration.</li>
+                      <li><strong>High-Resolution Audio Support:</strong> Process audio at professional sample rates up to 192kHz.</li>
+                      <li><strong>Configurable Buffer Sizes:</strong> Tune latency versus stability with buffer sizes from 64 to 256 samples and beyond.</li>
+                      <li><strong>Automatic Plugin Delay Compensation:</strong> Maintains perfect phase alignment across the entire plugin chain.</li>
+                      <li><strong>Zero-Allocation Real-time Audio Path:</strong> Pre-allocates all memory to prevent dynamic allocations that could cause xruns.</li>
+                      <li><strong>XRun Detection:</strong> Actively monitors for audio dropouts and provides detailed logging and recovery.</li>
+                      <li><strong>Professional Metering Suite:</strong> Includes Spectrum Analyzer, LUFS Loudness, VU Meters, and Phase Correlation.</li>
+                      <li><strong>Hot-Swappable USB Audio Interfaces:</strong> Add or remove audio hardware without restarting the service.</li>
+                      <li><strong>Optimized Eigen-based NAM Inference:</strong> Neural Amp Modeler backend is optimized for high-performance CPU inference.</li>
+                      <li><strong>Graceful Hardware Degradation:</strong> The system remains operational and controllable even if audio hardware is disconnected.</li>
+                      <li><strong>Fixed-Point and Floating-Point Processing:</strong> Supports various bit depths for maximum audio quality.</li>
+                      <li><strong>IRQ Balancing Management:</strong> Disables IRQ balancing on dedicated audio cores to ensure consistent low latency.</li>
+                      <li><strong>Asynchronous Audio Device Handling:</strong> Audio hardware changes are handled in the background without blocking the main application.</li>
+                    </ol>
+                  </section>
+                  <section class="top-features-group">
+                    <span class="eyebrow">53-72</span>
+                    <h3>System, management and control</h3>
+                    <ol class="top-features-list" start="53">
+                      <li><strong>FastAPI REST API:</strong> Comprehensive API with over 50 endpoints for deep system control and integration.</li>
+                      <li><strong>Real-time WebSocket Streaming:</strong> Pushes live metering data to web and TUI clients.</li>
+                      <li><strong>Modern React 18 Web UI:</strong> Fully-featured, browser-based interface for control from any device.</li>
+                      <li><strong>Textual-based TUI:</strong> A fast, lightweight text-based UI for remote management over SSH.</li>
+                      <li><strong>Multi-User Session Support:</strong> Allows for concurrent user sessions with workspace isolation.</li>
+                      <li><strong>SQLite Database Backend:</strong> Manages presets, chains, plugin lists, and system configuration.</li>
+                      <li><strong>Async Database Operations:</strong> Uses aiosqlite to prevent database queries from blocking the main event loop.</li>
+                      <li><strong>Chain as a Reusable Recipe:</strong> A saved Chain is an inert, reusable JSON definition for a specific sound.</li>
+                      <li><strong>Flow as a Runtime Instance:</strong> A Flow is a Chain that has been actively deployed to a node for execution.</li>
+                      <li><strong>Flow Orchestrator Service:</strong> Manages the deployment, state, and lifecycle of audio processing flows.</li>
+                      <li><strong>Centralized Cluster Management:</strong> Use a single UI to control and monitor an entire cluster of MAP2 nodes.</li>
+                      <li><strong>Preset Library with Import/Export:</strong> Easily share and back up your sounds.</li>
+                      <li><strong>System Health Monitoring and Diagnostics:</strong> API endpoints and UI panels for monitoring system status.</li>
+                      <li><strong>Automatic Service Orchestration:</strong> systemd services manage startup, shutdown, and dependencies.</li>
+                      <li><strong>Background Metrics Daemon:</strong> Collects performance data without interfering with real-time audio threads.</li>
+                      <li><strong>Plugin Discovery and Scanning:</strong> Automatically scans for and registers new LV2 plugins on startup.</li>
+                      <li><strong>LCD Simulation Mode:</strong> Run the LCD interface in a terminal without any hardware for testing and development.</li>
+                      <li><strong>Interactive LCD Setup Wizard:</strong> A command-line tool guides users through hardware detection and configuration.</li>
+                      <li><strong>Python-based Control Plane:</strong> The entire backend and management system is built on modern, asynchronous Python.</li>
+                      <li><strong>Multi-Platform Client Support:</strong> Control the system from any modern web browser on any operating system.</li>
+                    </ol>
+                  </section>
+                  <section class="top-features-group">
+                    <span class="eyebrow">73-100</span>
+                    <h3>Platform, architecture and networking</h3>
+                    <ol class="top-features-list" start="73">
+                      <li><strong>Distributed Multi-Node Cluster System:</strong> Scale processing power by linking multiple MAP2 units over a network.</li>
+                      <li><strong>Audio Video Bridging Support:</strong> Enables deterministic, time-synchronized, low-latency audio streaming over standard Ethernet.</li>
+                      <li><strong>Digital Snake Capability:</strong> Use AVB to transport many channels of audio over a single Ethernet cable.</li>
+                      <li><strong>Distributed DSP and CPU Load Balancing:</strong> Split a CPU-heavy effects chain across multiple nodes in an AVB network.</li>
+                      <li><strong>Interoperability with Pro AVB Gear:</strong> Connect and stream audio to and from third-party AVB devices.</li>
+                      <li><strong>gPTP Time Synchronization:</strong> Achieves sub-microsecond clock sync across all nodes on an AVB network.</li>
+                      <li><strong>AVDECC Device Discovery:</strong> Automatically discovers and identifies other AVB-capable devices on the network.</li>
+                      <li><strong>AEM Device Enumeration:</strong> Queries and understands the capabilities of other AVB devices.</li>
+                      <li><strong>AEM Caching Database:</strong> Caches discovered AVB device information to accelerate system startup.</li>
+                      <li><strong>Dual-Mode Networking:</strong> Can operate in a control-only IP mode or a full audio-streaming AVB mode.</li>
+                      <li><strong>All-In-One Operating Mode:</strong> Runs the audio engine, backend, and UI on a single machine for convenience.</li>
+                      <li><strong>Dedicated Audio Node Mode:</strong> Runs only the audio engine for minimum latency and maximum stability in a cluster.</li>
+                      <li><strong>Dedicated Control Node Mode:</strong> Runs only the management backend and UI to control a cluster.</li>
+                      <li><strong>High-Availability Architecture:</strong> Design includes primary and standby nodes for critical applications.</li>
+                      <li><strong>Automatic Failover Promotion:</strong> The Flow Orchestrator can automatically promote a standby node if a primary node fails.</li>
+                      <li><strong>Support for Intel I210/I225 NICs:</strong> Works with specific, professional-grade network hardware for AVB.</li>
+                      <li><strong>ptp4l Integration:</strong> Leverages the standard Linux PTP daemon for network time synchronization.</li>
+                      <li><strong>JSON-based Chain Configuration:</strong> Chains are stored in a human-readable and easily shareable format.</li>
+                      <li><strong>Headless Operation:</strong> Can run entirely without a connected display or user interface, managed remotely.</li>
+                      <li><strong>systemd Service Integration:</strong> Deployed as robust, manageable services for production environments.</li>
+                      <li><strong>Bare Metal Target:</strong> Designed for deployment on Fedora Linux with a real-time kernel.</li>
+                      <li><strong>Phased AVB Implementation Roadmap:</strong> A clear, documented plan for future AVB features like connection management.</li>
+                      <li><strong>Modular, Service-Oriented Architecture:</strong> Components are designed as independent, communicating services.</li>
+                      <li><strong>Asyncio-based Event Loop:</strong> Built on Python's modern asynchronous framework for high I/O throughput.</li>
+                      <li><strong>Scalability from Single Node to Large Cluster:</strong> The architecture is designed to scale from one to 10+ nodes.</li>
+                      <li><strong>Extensible Data Model:</strong> The database schema is designed to be extensible for future features.</li>
+                      <li><strong>Hardware Abstraction Layer:</strong> Code is separated from specific hardware to allow for future flexibility.</li>
+                      <li><strong>Comprehensive Documentation:</strong> A full suite of technical documents covers architecture, features, and implementation details.</li>
+                    </ol>
+                  </section>
+                </div>
+              </div>
+            </details>
             <div class="install-card">
               <div class="install-card__header">
                 <div>
