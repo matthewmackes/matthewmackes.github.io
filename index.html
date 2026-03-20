@@ -82,6 +82,41 @@
                 study how low-latency DSP systems are built, controlled, and extended in the real world.
               </p>
             </div>
+            <div class="status-box" aria-label="Source repository status">
+              <div class="status-box__header">
+                <div>
+                  <span class="eyebrow">Source status</span>
+                  <h2>Live repository signals</h2>
+                </div>
+                <div class="status-pills" aria-label="Repository tags">
+                  <span class="status-pill status-pill--accent">Source Repo</span>
+                  <span class="status-pill">Nightly</span>
+                  <span class="status-pill">Main Branch</span>
+                </div>
+              </div>
+              <div class="status-grid">
+                <div class="status-item">
+                  <span class="status-item__label">Last nightly build time</span>
+                  <span class="status-item__value" id="nightly-build-time">Loading from GitHub...</span>
+                  <span class="status-item__meta">`MAP2-RELEASES/nightly` activity</span>
+                </div>
+                <div class="status-item">
+                  <span class="status-item__label">Last source repo commit time</span>
+                  <span class="status-item__value" id="source-commit-time">2026-03-20 10:17 -04:00</span>
+                  <span class="status-item__meta" id="source-commit-meta">Commit `c8a15247` on `matthewmackes/map2-audio`</span>
+                </div>
+                <div class="status-item">
+                  <span class="status-item__label">Current source branch</span>
+                  <span class="status-item__value">main</span>
+                  <span class="status-item__meta">Tracked as the primary platform source branch</span>
+                </div>
+                <div class="status-item">
+                  <span class="status-item__label">Pages site status</span>
+                  <span class="status-item__value">Live on GitHub Pages</span>
+                  <span class="status-item__meta">Homepage status box refreshes from GitHub API at runtime</span>
+                </div>
+              </div>
+            </div>
             <div class="hero-actions">
               <a class="button button--primary" href="https://github.com/matthewmackes/MAP2-RELEASES/tree/main/nightly" target="_blank" rel="noreferrer">
                 Download a Nightly
@@ -610,5 +645,82 @@
         </p>
       </div>
     </footer>
+    <script>
+      const STATUS_REPOS = {
+        source: 'https://api.github.com/repos/matthewmackes/map2-audio/commits/main',
+        nightly: 'https://api.github.com/repos/matthewmackes/MAP2-RELEASES/commits?path=nightly&per_page=1',
+      };
+
+      function formatAbsoluteTime(dateString) {
+        return new Date(dateString).toLocaleString('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: '2-digit',
+          timeZoneName: 'short',
+        });
+      }
+
+      function formatRelativeTime(dateString) {
+        const value = new Date(dateString);
+        const now = new Date();
+        const seconds = Math.floor((now - value) / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+
+        if (minutes < 1) return 'just now';
+        if (minutes < 60) return `${minutes} minute${minutes === 1 ? '' : 's'} ago`;
+        if (hours < 24) return `${hours} hour${hours === 1 ? '' : 's'} ago`;
+        if (days < 30) return `${days} day${days === 1 ? '' : 's'} ago`;
+        return formatAbsoluteTime(dateString);
+      }
+
+      async function fetchJson(url) {
+        const response = await fetch(url, {
+          headers: { Accept: 'application/vnd.github+json' },
+        });
+        if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+        return response.json();
+      }
+
+      async function refreshRepoStatus() {
+        const sourceTime = document.getElementById('source-commit-time');
+        const sourceMeta = document.getElementById('source-commit-meta');
+        const nightlyTime = document.getElementById('nightly-build-time');
+
+        try {
+          const [sourceCommit, nightlyCommits] = await Promise.all([
+            fetchJson(STATUS_REPOS.source),
+            fetchJson(STATUS_REPOS.nightly),
+          ]);
+
+          const sourceDate = sourceCommit.commit?.committer?.date;
+          const sourceSha = sourceCommit.sha?.slice(0, 8);
+          const sourceMessage = sourceCommit.commit?.message?.split('\n')[0];
+          if (sourceDate && sourceTime) {
+            sourceTime.textContent = formatRelativeTime(sourceDate);
+            sourceTime.title = formatAbsoluteTime(sourceDate);
+          }
+          if (sourceMeta && sourceSha) {
+            sourceMeta.textContent = `Commit ${sourceSha} · ${sourceMessage}`;
+          }
+
+          const nightlyCommit = Array.isArray(nightlyCommits) ? nightlyCommits[0] : null;
+          const nightlyDate = nightlyCommit?.commit?.committer?.date;
+          if (nightlyDate && nightlyTime) {
+            nightlyTime.textContent = formatRelativeTime(nightlyDate);
+            nightlyTime.title = formatAbsoluteTime(nightlyDate);
+          } else if (nightlyTime) {
+            nightlyTime.textContent = 'No nightly update found';
+          }
+        } catch (_error) {
+          if (nightlyTime) nightlyTime.textContent = 'GitHub status unavailable';
+        }
+      }
+
+      refreshRepoStatus();
+    </script>
   </body>
 </html>

@@ -262,6 +262,91 @@ img {
   margin-bottom: var(--cds-spacing-08);
 }
 
+.status-box {
+  margin-bottom: var(--cds-spacing-07);
+  padding: var(--cds-spacing-06);
+  background: rgba(17, 20, 22, 0.82);
+  border: 1px solid rgba(120, 169, 255, 0.18);
+  backdrop-filter: blur(10px);
+}
+
+.status-box__header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--cds-spacing-05);
+  align-items: end;
+  margin-bottom: var(--cds-spacing-05);
+}
+
+.status-box__header h2 {
+  margin: 0;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+.status-pills {
+  display: flex;
+  gap: var(--cds-spacing-03);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.75rem;
+  padding: 0.1rem 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--cds-text-secondary);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.status-pill--accent {
+  border-color: rgba(120, 169, 255, 0.28);
+  background: rgba(69, 137, 255, 0.14);
+  color: var(--cds-text-primary);
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--cds-spacing-05);
+}
+
+.status-item {
+  padding-top: var(--cds-spacing-04);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.status-item__label {
+  display: block;
+  margin-bottom: var(--cds-spacing-03);
+  color: var(--cds-text-helper);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.status-item__value {
+  display: block;
+  margin-bottom: var(--cds-spacing-03);
+  color: var(--cds-text-primary);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.status-item__meta {
+  display: block;
+  color: var(--cds-text-secondary);
+  font-size: 0.875rem;
+}
+
 .install-card {
   margin-bottom: var(--cds-spacing-08);
   padding: var(--cds-spacing-06);
@@ -749,6 +834,15 @@ img {
   .hero-heading {
     padding-right: min(36vw, 20rem);
     min-height: 15rem;
+  }
+
+  .status-box__header,
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .status-pills {
+    justify-content: flex-start;
   }
 
   .install-card__header {
