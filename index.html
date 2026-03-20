@@ -60,6 +60,7 @@
           <a href="#education">Educational purpose</a>
           <a href="#architecture">Architecture</a>
           <a href="#use-cases">Use cases</a>
+          <a href="#license">License</a>
           <a href="#links">Links</a>
         </nav>
         <a class="header-cta" href="https://github.com/matthewmackes/MAP2-RELEASES/tree/main/nightly" target="_blank" rel="noreferrer">
@@ -732,6 +733,60 @@
         </div>
       </section>
 
+      <section class="section" id="license">
+        <div class="section-header">
+          <img src="assets/map2-hero-icon.svg" alt="">
+          <div>
+            <h2>License and open-source compliance</h2>
+            <p class="section-intro">
+              MAP2’s website should accurately reflect the platform’s declared licensing posture. The repository states
+              that MAP2-owned code and documentation are licensed under the GNU Affero General Public License v3.0
+              (`AGPL-3.0-only`), while third-party components remain under their original licenses.
+            </p>
+          </div>
+        </div>
+        <div class="panel-grid">
+          <article class="panel">
+            <span class="eyebrow">Primary license</span>
+            <h3>AGPLv3 for MAP2-owned code</h3>
+            <p>
+              The top-level MAP2 repository license declares `AGPL-3.0-only` for MAP2-owned repository code and
+              documentation unless a file explicitly states otherwise.
+            </p>
+            <ul class="detail-list">
+              <li><strong>License file:</strong> <a href="https://github.com/matthewmackes/map2-audio/blob/main/LICENSE" target="_blank" rel="noreferrer">MAP2 LICENSE</a></li>
+              <li><strong>Source repository:</strong> <a href="https://github.com/matthewmackes/map2-audio" target="_blank" rel="noreferrer">matthewmackes/map2-audio</a></li>
+              <li><strong>Project posture:</strong> MAP2-owned code/docs are AGPLv3 unless explicitly overridden.</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <span class="eyebrow">Network use</span>
+            <h3>Source availability matters</h3>
+            <p>
+              The repository README explicitly notes that if you modify and run the software for users over a network,
+              you must provide the corresponding source code for that running version as required by AGPLv3.
+            </p>
+            <ul class="detail-list">
+              <li><strong>Why it matters:</strong> hosted or networked MAP2 deployments still carry source-disclosure obligations.</li>
+              <li><strong>Practical path:</strong> keep your running fork, modifications, and notices available to users of that deployed version.</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <span class="eyebrow">Third-party notices</span>
+            <h3>Third-party licenses stay in force</h3>
+            <p>
+              MAP2 does not relicense third-party code. Components like NeuralAmpModelerCore, PiPedal-derived UI code,
+              JUCE, fonts, and other dependencies remain under their own original licenses and terms.
+            </p>
+            <ul class="detail-list">
+              <li><strong>Notices:</strong> <a href="https://github.com/matthewmackes/map2-audio/blob/main/docs/THIRD_PARTY_NOTICES.md" target="_blank" rel="noreferrer">Third-Party Notices</a></li>
+              <li><strong>Legal notice:</strong> <a href="https://github.com/matthewmackes/map2-audio/blob/main/docs/%23%20LEGAL%20DISCLAIMER%20%E2%80%93%20IMPORTANT%20NOTICE.md" target="_blank" rel="noreferrer">Legal Disclaimer</a></li>
+              <li><strong>Trademark note:</strong> the repository license does not grant trademark rights.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
       <section class="section" id="giants">
         <div class="section-header">
           <img src="assets/map2-hero-icon.svg" alt="">
@@ -919,6 +974,7 @@
             "url": "https://matthewmackes.github.io/",
             "downloadUrl": "https://github.com/matthewmackes/MAP2-RELEASES/tree/main/nightly",
             "codeRepository": "https://github.com/matthewmackes/map2-audio",
+            "license": "https://github.com/matthewmackes/map2-audio/blob/main/LICENSE",
             "description": "A Linux audio platform for real-time DSP, MIDI routing, AVB networking, clustering, and browser-based control.",
             "featureList": [
               "Real-time DSP on Linux",
