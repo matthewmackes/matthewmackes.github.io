@@ -94,6 +94,27 @@
                 LinkedIn
               </a>
             </div>
+            <div class="install-card">
+              <div class="install-card__header">
+                <div>
+                  <span class="eyebrow">Install MAP on Fedora Server</span>
+                  <h2>Start with Fedora Server.</h2>
+                </div>
+                <a class="button button--secondary install-card__cta" href="https://www.fedoraproject.org/server/download/" target="_blank" rel="noreferrer">
+                  Download Fedora Server
+                </a>
+              </div>
+              <p class="install-card__summary">
+                MAP2 is positioned around a Fedora Server base because Fedora Server offers a strong open-source Linux
+                foundation, current packages, real-time-friendly workflows, and a clean headless/server path for audio experimentation.
+              </p>
+              <ol class="install-steps">
+                <li><strong>Download Fedora Server:</strong> get the current official Fedora Server image from the Fedora Project.</li>
+                <li><strong>Install Fedora Server:</strong> perform a clean server install on the target machine and apply system updates.</li>
+                <li><strong>Prepare the audio host:</strong> configure networking, storage, and the hardware interfaces you plan to use.</li>
+                <li><strong>Install MAP2:</strong> use the MAP2 nightly release or source repository to continue platform setup and evaluation.</li>
+              </ol>
+            </div>
             <div class="hero-meta" aria-label="Platform highlights">
               <div class="hero-stat">
                 <strong>&lt;3ms</strong>
@@ -503,6 +524,76 @@
             <span class="eyebrow">Contact</span>
             <h3><a href="https://www.linkedin.com/in/matthewmackes/" target="_blank" rel="noreferrer">LinkedIn</a></h3>
             <p>Follow the work or reach out through the existing public profile.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="giants">
+        <div class="section-header">
+          <img src="assets/map2-hero-icon.svg" alt="">
+          <div>
+            <h2>Built on the shoulders of Giants</h2>
+            <p class="section-intro">
+              This section mirrors the project foundations credited in the MAP platform About GUI. MAP2 depends on open
+              ecosystems across audio, Linux, APIs, UI, machine learning, routing, accessibility, and scientific computing.
+            </p>
+          </div>
+        </div>
+        <div class="giants-grid">
+          <article class="giant-card">
+            <span class="eyebrow">Core platform</span>
+            <h3>Audio engine and runtime foundations</h3>
+            <ul class="giant-list">
+              <li><a href="https://juce.com/" target="_blank" rel="noreferrer">JUCE</a></li>
+              <li><a href="https://www.neuralampmodeler.com/" target="_blank" rel="noreferrer">Neural Amp Modeler</a></li>
+              <li><a href="https://lv2plug.in/" target="_blank" rel="noreferrer">LV2</a></li>
+              <li><a href="https://fedoraproject.org/" target="_blank" rel="noreferrer">Fedora PREEMPT_RT / Fedora Project</a></li>
+            </ul>
+          </article>
+          <article class="giant-card">
+            <span class="eyebrow">Backend</span>
+            <h3>API and service layer</h3>
+            <ul class="giant-list">
+              <li><a href="https://fastapi.tiangolo.com/" target="_blank" rel="noreferrer">FastAPI</a></li>
+              <li><a href="https://www.uvicorn.org/" target="_blank" rel="noreferrer">Uvicorn</a></li>
+              <li><a href="https://www.sqlalchemy.org/" target="_blank" rel="noreferrer">SQLAlchemy</a></li>
+              <li><a href="https://docs.pydantic.dev/" target="_blank" rel="noreferrer">Pydantic</a></li>
+            </ul>
+          </article>
+          <article class="giant-card">
+            <span class="eyebrow">Frontend</span>
+            <h3>Browser UI and design systems</h3>
+            <ul class="giant-list">
+              <li><a href="https://react.dev/" target="_blank" rel="noreferrer">React</a></li>
+              <li><a href="https://vitejs.dev/" target="_blank" rel="noreferrer">Vite</a></li>
+              <li><a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer">TypeScript</a></li>
+              <li><a href="https://carbondesignsystem.com/" target="_blank" rel="noreferrer">Carbon Design System</a></li>
+              <li><a href="https://reactflow.dev/" target="_blank" rel="noreferrer">React Flow</a></li>
+            </ul>
+          </article>
+          <article class="giant-card">
+            <span class="eyebrow">Audio and DSP</span>
+            <h3>Scientific and plugin ecosystem</h3>
+            <ul class="giant-list">
+              <li><a href="https://eigen.tuxfamily.org/" target="_blank" rel="noreferrer">Eigen</a></li>
+              <li><a href="https://drobilla.net/software/lilv.html" target="_blank" rel="noreferrer">lilv</a></li>
+              <li><a href="https://pytorch.org/" target="_blank" rel="noreferrer">PyTorch</a></li>
+              <li><a href="https://numpy.org/" target="_blank" rel="noreferrer">NumPy</a></li>
+              <li><a href="https://scipy.org/" target="_blank" rel="noreferrer">SciPy</a></li>
+              <li><a href="https://github.com/SpotlightKid/python-rtmidi" target="_blank" rel="noreferrer">python-rtmidi</a></li>
+            </ul>
+          </article>
+          <article class="giant-card">
+            <span class="eyebrow">Utilities</span>
+            <h3>Supporting tooling and data plumbing</h3>
+            <ul class="giant-list">
+              <li><a href="https://github.com/nlohmann/json" target="_blank" rel="noreferrer">nlohmann/json</a></li>
+              <li><a href="https://pybind11.readthedocs.io/" target="_blank" rel="noreferrer">pybind11</a></li>
+              <li><a href="https://tanstack.com/query" target="_blank" rel="noreferrer">TanStack Query</a></li>
+              <li><a href="https://reactrouter.com/" target="_blank" rel="noreferrer">React Router</a></li>
+              <li><a href="https://recharts.org/" target="_blank" rel="noreferrer">Recharts</a></li>
+              <li><a href="https://ariakit.org/" target="_blank" rel="noreferrer">Ariakit</a></li>
+            </ul>
           </article>
         </div>
       </section>

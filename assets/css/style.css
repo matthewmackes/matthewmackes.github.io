@@ -223,6 +223,49 @@ img {
   margin-bottom: var(--cds-spacing-08);
 }
 
+.install-card {
+  margin-bottom: var(--cds-spacing-08);
+  padding: var(--cds-spacing-06);
+  background:
+    linear-gradient(135deg, rgba(11, 87, 164, 0.22), rgba(38, 38, 38, 0.96) 45%),
+    linear-gradient(180deg, rgba(38, 38, 38, 0.96), rgba(20, 23, 25, 0.96));
+  border: 1px solid rgba(120, 169, 255, 0.22);
+}
+
+.install-card__header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--cds-spacing-05);
+  align-items: end;
+  margin-bottom: var(--cds-spacing-05);
+}
+
+.install-card__header h2 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  line-height: 1.05;
+  font-weight: 400;
+}
+
+.install-card__cta {
+  white-space: nowrap;
+}
+
+.install-card__summary {
+  margin: 0 0 var(--cds-spacing-05);
+  color: var(--cds-text-secondary);
+}
+
+.install-steps {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--cds-text-secondary);
+}
+
+.install-steps li + li {
+  margin-top: 0.5rem;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -552,6 +595,58 @@ img {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.giants-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--cds-spacing-05);
+}
+
+.giant-card {
+  padding: var(--cds-spacing-06);
+  background: rgba(38, 38, 38, 0.9);
+  border: 1px solid var(--cds-border-subtle-00);
+  position: relative;
+  overflow: hidden;
+}
+
+.giant-card::after {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 5rem;
+  height: 5rem;
+  background-image: url("../map2-hero-icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.08;
+}
+
+.giant-card h3 {
+  margin: 0 0 var(--cds-spacing-04);
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.giant-list {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.giant-list li + li {
+  margin-top: 0.45rem;
+}
+
+.giant-list a {
+  color: var(--cds-text-primary);
+  text-decoration: none;
+}
+
+.giant-list a:hover,
+.giant-list a:focus-visible {
+  color: var(--cds-link-hover);
+}
+
 .link-card a {
   color: var(--cds-text-primary);
   text-decoration: none;
@@ -589,7 +684,8 @@ img {
   .panel-grid,
   .feature-grid,
   .use-case-grid,
-  .link-grid {
+  .link-grid,
+  .giants-grid {
     grid-template-columns: 1fr;
   }
 
@@ -609,6 +705,11 @@ img {
 
   .protocol-card {
     position: static;
+  }
+
+  .install-card__header {
+    grid-template-columns: 1fr;
+    align-items: start;
   }
 }
 
