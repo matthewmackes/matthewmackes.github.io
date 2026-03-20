@@ -178,6 +178,7 @@ img {
 }
 
 .hero-copy {
+  position: relative;
   padding: var(--cds-spacing-09);
   background: linear-gradient(180deg, rgba(38, 38, 38, 0.96), rgba(20, 23, 25, 0.96));
   border: 1px solid var(--cds-border-subtle-00);
@@ -206,6 +207,8 @@ img {
   line-height: 0.92;
   font-weight: 400;
   max-width: 12ch;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-summary {
@@ -213,6 +216,42 @@ img {
   margin: 0 0 var(--cds-spacing-07);
   font-size: 1.125rem;
   color: var(--cds-text-secondary);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-heading {
+  position: relative;
+  margin-bottom: var(--cds-spacing-07);
+  padding-right: min(32vw, 24rem);
+  min-height: 17rem;
+}
+
+.hero-heading::before {
+  content: "";
+  position: absolute;
+  inset: -1.25rem -1.5rem -1.25rem 22%;
+  background-image:
+    linear-gradient(90deg, rgba(38, 38, 38, 0.98) 0%, rgba(38, 38, 38, 0.9) 26%, rgba(38, 38, 38, 0.34) 55%, rgba(38, 38, 38, 0.12) 100%),
+    linear-gradient(180deg, rgba(12, 14, 16, 0.24), rgba(12, 14, 16, 0.38)),
+    url("../hero-collage.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right center;
+  opacity: 0.76;
+  filter: drop-shadow(0 18px 42px rgba(0, 0, 0, 0.32));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-heading::after {
+  content: "";
+  position: absolute;
+  inset: -1.25rem -1.5rem -1.25rem 0;
+  background:
+    linear-gradient(90deg, rgba(38, 38, 38, 1) 0%, rgba(38, 38, 38, 0.92) 28%, rgba(38, 38, 38, 0.54) 52%, rgba(38, 38, 38, 0.18) 72%, rgba(38, 38, 38, 0) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-actions {
@@ -707,6 +746,11 @@ img {
     position: static;
   }
 
+  .hero-heading {
+    padding-right: min(34vw, 19rem);
+    min-height: 14rem;
+  }
+
   .install-card__header {
     grid-template-columns: 1fr;
     align-items: start;
@@ -743,6 +787,16 @@ img {
 
   .hero-meta {
     grid-template-columns: 1fr;
+  }
+
+  .hero-heading {
+    min-height: 0;
+    padding-right: 0;
+  }
+
+  .hero-heading::before,
+  .hero-heading::after {
+    display: none;
   }
 
   .button,
