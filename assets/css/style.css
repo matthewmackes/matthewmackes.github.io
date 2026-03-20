@@ -76,7 +76,7 @@ img {
 }
 
 .page-shell {
-  width: min(calc(100% - 2rem), var(--page-max));
+  width: min(calc(100% - 3rem), var(--page-max));
   margin: 0 auto;
 }
 
@@ -858,7 +858,7 @@ img {
   }
 
   .page-shell {
-    width: min(calc(100% - 1rem), var(--page-max));
+    width: min(calc(100% - 1.5rem), var(--page-max));
   }
 
   .section {
