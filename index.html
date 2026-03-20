@@ -1,550 +1,461 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matthew Mackes - Product & Engineering Leader | Audio Systems | MAP2</title>
-    
-    <!-- Meta Tags for SEO -->
-    <meta name="description" content="Product & engineering leader focused on intelligent audio platforms. Expert in real-time audio systems, AI tooling, systems leadership, and performance optimization. Currently developing MAP2, an enterprise-grade modular audio processor.">
-    <meta name="keywords" content="audio systems, real-time DSP, product leadership, engineering, AI audio, neural amp modeling, systems architecture, MAP2, modular audio processor">
+    <title>Mackes Audio Platform | Educational Linux Audio Platform</title>
+    <meta
+      name="description"
+      content="Mackes Audio Platform is an educational Linux audio platform that demonstrates real-time DSP, plugin hosting, AVB networking, MIDI workflows, and multi-layer control architecture for musicians and audio developers."
+    >
+    <meta
+      name="keywords"
+      content="Mackes Audio Platform, MAP2, Linux audio, JUCE, FastAPI, React, MIDI, AVB, neural amp modeling, educational DSP, amateur audio platform"
+    >
     <meta name="author" content="Matthew Mackes">
-    <meta name="theme-color" content="#1976D2">
+    <meta name="theme-color" content="#161616">
     <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Tags for Social Sharing -->
-    <meta property="og:title" content="Matthew Mackes - Product & Engineering Leader">
-    <meta property="og:description" content="Product & engineering leader focused on intelligent audio platforms. Expert in real-time audio systems, AI tooling, and systems leadership.">
-    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Mackes Audio Platform">
+    <meta
+      property="og:description"
+      content="An educational and experimental Linux audio platform for musicians and audio developers."
+    >
+    <meta property="og:type" content="website">
     <meta property="og:url" content="https://matthewmackes.github.io">
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/49801660?v=4">
-    <meta property="og:image:alt" content="Matthew Mackes">
-    <meta property="og:site_name" content="Matthew Mackes">
-    
-    <!-- Twitter Card Tags -->
+    <meta property="og:image" content="https://matthewmackes.github.io/assets/map2-hero-icon.svg">
+    <meta property="og:site_name" content="Mackes Audio Platform">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Matthew Mackes - Product & Engineering Leader">
-    <meta name="twitter:description" content="Product & engineering leader focused on intelligent audio platforms and real-time systems.">
-    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/49801660?v=4">
-    
-    <!-- Canonical URL -->
+    <meta name="twitter:title" content="Mackes Audio Platform">
+    <meta
+      name="twitter:description"
+      content="An educational Linux audio platform that explores real-time DSP, network audio, and modern control architecture."
+    >
+    <meta name="twitter:image" content="https://matthewmackes.github.io/assets/map2-hero-icon.svg">
     <link rel="canonical" href="https://matthewmackes.github.io">
-    
-    <!-- Additional Links for Search Engines -->
     <link rel="profile" href="https://www.linkedin.com/in/matthewmackes/">
     <link rel="author" href="https://github.com/matthewmackes">
-    
-    <!-- Google Fonts - Roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    <!-- Styles -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    >
     <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-    <!-- Header -->
-    <header class="header elevation-4">
-<div class="container">
-            <div class="header-top">
-                <img src="https://avatars.githubusercontent.com/u/49801660?v=4" alt="Matthew Mackes" class="header-profile-pic" />
-                <div class="header-text">
-                    <h1 class="header-title">Matthew Mackes</h1>
-                    <p class="header-subtitle">Cyber Architect | Audio Engineer | Open Source Contributor | Hobbyist</p>
-                </div>
-            </div>
-            <div class="header-actions">
-<a href="https://github.com/matthewmackes" target="_blank" class="btn-flat">
-                    <span class="material-icons">code</span>
-                    GitHub
-                </a>
-            </div>
-        </div>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="page-shell header-bar">
+        <a class="brand-lockup" href="#top" aria-label="Mackes Audio Platform home">
+          <img class="brand-lockup__icon" src="assets/map2-hero-icon.svg" alt="MAP2 icon">
+          <span>
+            <span class="brand-lockup__eyebrow">Educational audio platform</span>
+            <span class="brand-lockup__title">Mackes Audio Platform</span>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#overview">Overview</a>
+          <a href="#features">Features</a>
+          <a href="#education">Educational purpose</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#use-cases">Use cases</a>
+          <a href="#links">Links</a>
+        </nav>
+        <a class="header-cta" href="https://github.com/matthewmackes/MAP2-RELEASES/tree/main/nightly" target="_blank" rel="noreferrer">
+          Download a Nightly
+        </a>
+      </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="container main-content">
-        
-        <!-- About Section -->
-        <section class="card elevation-2">
-            <div class="card-content">
-                <h2 class="section-title">
-                    <span class="material-icons">person</span>
-                    About Me
-                </h2>
-                <p class="body-text">
-                    I'm a passionate developer focused on building professional-grade audio processing solutions. 
-                    With expertise spanning embedded systems, web technologies, and real-time audio, I create 
-                    tools that bridge the gap between software flexibility and hardware reliability.
-                </p>
-                <p class="body-text">
-                    Currently, I'm developing MAP2 (Modular Audio Processor 2), a next-generation audio processing 
-                    platform designed for musicians and audio engineers who demand professional quality and 
-                    complete control over their sound.
-                </p>
-                <a href="https://www.linkedin.com/in/matthewmackes/" target="_blank" class="btn-primary">
-                    View Full Profile
-                    <span class="material-icons">arrow_forward</span>
-                </a>
+    <main id="top" class="page-shell">
+      <section class="section hero" id="overview">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="hero-label">
+              <img src="assets/map2-hero-icon.svg" alt="">
+              Mackes Audio Platform
+            </span>
+            <h1>An educational Linux audio platform for musicians and audio developers.</h1>
+            <p class="hero-summary">
+              Mackes Audio Platform, also known in the MAP2 source tree, is a practical study platform for real-time
+              audio on Linux. It combines a JUCE/C++ engine, a Python control backend, and a web interface so users can
+              study how low-latency DSP systems are built, controlled, and extended in the real world.
+            </p>
+            <div class="hero-actions">
+              <a class="button button--primary" href="https://github.com/matthewmackes/MAP2-RELEASES/tree/main/nightly" target="_blank" rel="noreferrer">
+                Download a Nightly
+              </a>
+              <a class="button button--secondary" href="https://github.com/matthewmackes/map2-audio" target="_blank" rel="noreferrer">
+                View MAP2 source
+              </a>
+              <a class="button button--secondary" href="https://github.com/matthewmackes/matthewmackes.github.io" target="_blank" rel="noreferrer">
+                View this site
+              </a>
+              <a class="button button--secondary" href="https://www.linkedin.com/in/matthewmackes/" target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
             </div>
-        </section>
-
-        <!-- Featured Project Section -->
-        <section class="card elevation-2">
-            <div class="card-content">
-                <h2 class="section-title">
-                    <span class="material-icons">workspace_premium</span>
-                    Featured Project: MAP2
-                </h2>
-                <h3 class="subsection-title">Modular Audio Processor 2</h3>
-                
-                <div class="project-hero">
-                    <img class="project-avatar" src="https://avatars.githubusercontent.com/u/49801660?v=4" alt="Matthew Mackes - MAP2 Creator" />
-                    <div class="project-hero-content">
-                
-                <div class="project-hero">
-                    <img class="project-avatar" src="https://avatars.githubusercontent.com/u/49801660?v=4" alt="Matthew Mackes - MAP2 Creator" />
-                    <div class="project-hero-content">
-                
-                <div class="project-hero">
-                    <img class="project-avatar" src="https://avatars.githubusercontent.com/u/49801660?v=4" alt="Matthew Mackes - MAP2 Creator" />
-                    <div class="project-hero-content">
-                
-                <div class="project-highlight">
-                    <h4 class="highlight-title">Triple-Interface Architecture</h4>
-                    <p class="body-text">
-                        What truly sets MAP2 apart is its triple-interface architecture, ensuring accessibility in any 
-                        environment. Musicians can control the platform through a web-based dashboard built with 
-                        React/TypeScript for remote or desktop access, a sophisticated Terminal User Interface (TUI) 
-                        using the Textual framework for headless server environments, or a dedicated LCD display system 
-                        (I2C/Serial) for hardware-like control surfaces inspired by high-end processors like the Kemper 
-                        Profiler and Line 6 Helix. Each interface provides real-time monitoring, effect chain editing, 
-                        preset management, and system status visibility, synchronized across all modes via the event bus 
-                        and WebSocket streaming for live updates.
-                    </p>
-                </div>
-
-                <div class="project-highlight">
-                    <h4 class="highlight-title">Professional-Grade Audio Processing</h4>
-                    <p class="body-text">
-                        The audio processing capabilities are comprehensive and professional-grade. The native processor 
-                        library includes dynamics (compressor, limiter, noise gate), EQ (8-band parametric), convolution 
-                        for impulse responses, and spectrum analysis for metering. Beyond these, MAP2 leverages the 
-                        thriving LV2 plugin ecosystem, allowing users to load virtually any Linux audio plugin, and 
-                        features Neural Amp Modeling (NAM) for authentic amp and pedal emulation using AI-generated 
-                        profiles. The MIDI system is equally sophisticated, offering full keyboard/controller mapping 
-                        with MIDI learn, program change support, note binding, and CC mapping—making hardware controllers 
-                        feel like first-class citizens in the platform.
-                    </p>
-                </div>
-
-                <div class="project-highlight">
-                    <h4 class="highlight-title">Enterprise-Grade Reliability</h4>
-                    <p class="body-text">
-                        Under the hood, MAP2 prioritizes reliability and observability with enterprise-grade features 
-                        that make it production-ready. The system includes comprehensive health monitoring with 
-                        configurable thresholds for temperature, CPU, memory, and disk usage; automated cluster discovery 
-                        via mDNS; graceful fallback mechanisms for network failures; and Prometheus-compatible metrics 
-                        export for integration with monitoring stacks. Session backup and restore functionality uses 7z 
-                        compression with incremental backup support, while the event system provides a persistent, 
-                        distributed pub/sub model with SQLite backing and WebSocket broadcasting. Whether you're recording 
-                        your first home studio session or managing a complex live sound setup, MAP2 delivers the stability, 
-                        flexibility, and professional audio quality that serious musicians demand.
-                    </p>
-                </div>
-
-                </div>
-                </div>
-                
-                </div>
-                </div>
-                
-                <div class="project-tech-stack">
-                    <h4 class="highlight-title">Technology Stack</h4>
-                    <div class="tech-chips">
-                        <span class="chip">Python</span>
-                        <span class="chip">React</span>
-                        <span class="chip">TypeScript</span>
-                        <span class="chip">LV2 Plugins</span>
-                        <span class="chip">MIDI</span>
-                        <span class="chip">WebSocket</span>
-                        <span class="chip">Textual</span>
-                        <span class="chip">Prometheus</span>
-                        <span class="chip">SQLite</span>
-                        <span class="chip">Neural Amp Modeling</span>
-                    </div>
-                </div>
+            <div class="hero-meta" aria-label="Platform highlights">
+              <div class="hero-stat">
+                <strong>&lt;3ms</strong>
+                <span>Documented low-latency target with live callback monitoring and qualification work.</span>
+              </div>
+              <div class="hero-stat">
+                <strong>50+</strong>
+                <span>Documented platform capabilities across DSP, MIDI, AVB, control, and deployment surfaces.</span>
+              </div>
+              <div class="hero-stat">
+                <strong>3 layers</strong>
+                <span>One platform composed of a real-time engine, API/backend control plane, and browser UI.</span>
+              </div>
             </div>
-        </section>
-
-        <!-- Technical Deep Dive Section -->
-        <section class="card elevation-2">
-            <div class="card-content">
-                <h2 class="section-title">
-                    <span class="material-icons">architecture</span>
-                    Technical Deep Dive: Core System, Node Design & Scalability
-                </h2>
-                
-                <div class="project-highlight">
-                    <h4 class="highlight-title">🎵 Core System Architecture</h4>
-                    
-                    <p class="body-text"><strong>The Three-Layer Foundation</strong></p>
-                    <ul class="technical-list">
-                        <li><strong>JUCE C++ Audio Engine</strong> - Real-time DSP processing with deterministic performance (512-sample buffer, &lt;10ms latency)</li>
-                        <li><strong>FastAPI Python Backend</strong> - Async orchestration handling all the management tasks without interrupting audio</li>
-                        <li><strong>Modular Service Ecosystem</strong> - Specialized services working together seamlessly</li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>How It All Starts (Startup Sequence)</strong></p>
-                    <ul class="technical-list">
-                        <li>✅ Health metrics initialize</li>
-                        <li>✅ Database connection pool boots up (10 connections, 20 overflow)</li>
-                        <li>✅ Audio engine validates configuration</li>
-                        <li>✅ Plugin scanning & discovery</li>
-                        <li>✅ JACK/ALSA audio I/O initialization</li>
-                        <li>✅ MIDI system comes online</li>
-                        <li>✅ WebSocket manager ready for real-time updates</li>
-                        <li>✅ LCD manager (if hardware present)</li>
-                        <li>✅ Event bus fires up with 5 producer types</li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>Audio Thread Safety (The Golden Rule)</strong></p>
-                    <ul class="technical-list">
-                        <li>🔒 Audio thread NEVER blocks for management tasks</li>
-                        <li>🔒 DSP load stays &lt;1% overhead</li>
-                        <li>🔒 Metrics pushed only every 60 seconds (not continuously)</li>
-                        <li>🔒 All I/O is non-blocking</li>
-                        <li>🔒 Database operations happen async, never in audio thread</li>
-                    </ul>
-                </div>
-
-                <div class="project-highlight">
-                    <h4 class="highlight-title">🖥️ Node Design & Role Assignment</h4>
-                    
-                    <p class="body-text"><strong>What Makes a Node Unique</strong></p>
-                    <ul class="technical-list">
-                        <li><strong>Immutable Identity</strong> - UUID + MAC address combo (can't change)</li>
-                        <li><strong>Auto Role Assignment</strong> - Based on hardware capabilities (CPU, GPU, audio interfaces)</li>
-                        <li><strong>Mutable Status</strong> - Online, Offline, Degraded, Updating, Recovering, Failed, Initializing</li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>Node Roles (Smart Assignment)</strong></p>
-                    <ul class="technical-list">
-                        <li><strong>Audio Node</strong> - The workhorse! Runs DSP, hosts plugins, handles MIDI</li>
-                        <li><strong>Management Node</strong> - The conductor! Orchestrates cluster, manages other nodes</li>
-                        <li><strong>Standby Management</strong> - The backup! Ready to take over if primary fails</li>
-                        <li><strong>Frontend Only</strong> - Dashboard access, no audio processing</li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>Hardware Auto-Detection</strong></p>
-                    <ul class="technical-list">
-                        <li>CPU cores & model name</li>
-                        <li>Total & available memory</li>
-                        <li>Kernel & OS version (Fedora)</li>
-                        <li>Audio interfaces (Edirol, Hotone, JACK devices)</li>
-                        <li>Network interfaces & MAC addresses</li>
-                        <li>GPU presence & model (if available)</li>
-                        <li>Storage capacity</li>
-                        <li>DSP load & xrun count</li>
-                        <li>Uptime tracking</li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>Why This Design is Awesome</strong></p>
-                    <ul class="technical-list">
-                        <li>✨ No manual configuration needed</li>
-                        <li>✨ Plug-and-play new nodes</li>
-                        <li>✨ System knows what each node can do</li>
-                        <li>✨ Optimal assignment decisions based on real hardware</li>
-                        <li>✨ Health monitoring tailored to node type</li>
-                    </ul>
-                </div>
-
-                <div class="project-highlight">
-                    <h4 class="highlight-title">🌐 Cluster Communication & Coordination</h4>
-                    
-                    <p class="body-text"><strong>Discovery (Automatic Neighbor Finding)</strong></p>
-                    <ul class="technical-list">
-                        <li>🔍 mDNS announces node presence automatically</li>
-                        <li>🔍 No DNS or IP configuration required</li>
-                        <li>🔍 Nodes find each other on the local network</li>
-                        <li>🔍 Works across different subnets with proper setup</li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>Real-Time Updates (WebSocket Magic)</strong></p>
-                    <ul class="technical-list">
-                        <li>⚡ Health overviews every 2 seconds</li>
-                        <li>⚡ Disk health every 5 seconds</li>
-                        <li>⚡ &lt;100ms latency (vs 2-5 seconds with polling)</li>
-                        <li>⚡ Auto-reconnection with exponential backoff</li>
-                        <li>⚡ Graceful fallback to polling if WebSocket fails</li>
-                        <li>⚡ <strong>Saves 78% bandwidth</strong> compared to constant polling</li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>State Synchronization</strong></p>
-                    <ul class="technical-list">
-                        <li>📡 Event bus with SQLite backing</li>
-                        <li>📡 MIDI parameters sync across nodes</li>
-                        <li>📡 Preset changes broadcast to all redundant copies</li>
-                        <li>📡 Configuration updates propagate automatically</li>
-                        <li>📡 Everything via WebSocket for instant delivery</li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>Configuration Management</strong></p>
-                    <ul class="technical-list">
-                        <li>📋 Fedora-standard INI files in map2</li>
-                        <li>📋 Push-based deployment (fast)</li>
-                        <li>📋 2-minute fallback to pull (safe)</li>
-                        <li>📋 DNF package manager for consistency</li>
-                        <li>📋 Systemd timers for automation</li>
-                    </ul>
-                </div>
-
-                <div class="project-highlight">
-                    <h4 class="highlight-title">🎸 Multi-Node Flow Deployment & Redundancy</h4>
-                    
-                    <p class="body-text"><strong>How Flows Work (Simple & Elegant)</strong></p>
-                    <ul class="technical-list">
-                        <li>Complete effects chains run on single dedicated nodes</li>
-                        <li>No inter-node audio routing (keeps it simple!)</li>
-                        <li>Management node assigns flows based on:
-                            <ul class="technical-sublist">
-                                <li>Available CPU</li>
-                                <li>GPU presence</li>
-                                <li>Hardware specialization</li>
-                                <li>Latency to management node</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>Built-In Redundancy (No Single Point of Failure)</strong></p>
-                    <ul class="technical-list">
-                        <li>🔄 Standby nodes run passive copies of flows</li>
-                        <li>🔄 &lt;30 second automatic failover on primary failure</li>
-                        <li>🔄 Heartbeat monitoring detects issues instantly</li>
-                        <li>🔄 Per-flow metrics show what's happening</li>
-                        <li>🔄 Optional (you choose which flows need it)</li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>The Control Dashboard</strong></p>
-                    <ul class="technical-list">
-                        <li>📊 See all nodes at a glance</li>
-                        <li>📊 See all active flows</li>
-                        <li>📊 Assignment matrix shows what's where</li>
-                        <li>📊 One-click actions: assign, failover, rebalance, maintain</li>
-                        <li>📊 Single pane of glass from any node</li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>Why We Skipped Complex Solutions</strong></p>
-                    <ul class="technical-list">
-                        <li>✗ No Raft consensus (too complex)</li>
-                        <li>✗ No NetJACK2 (audio over network = latency hell)</li>
-                        <li>✓ Humans assign flows explicitly</li>
-                        <li>✓ System handles state sync automatically</li>
-                        <li>✓ Simple, proven, debuggable</li>
-                    </ul>
-                </div>
-
-                <div class="project-highlight">
-                    <h4 class="highlight-title">📈 Scalability & Operational Maturity</h4>
-                    
-                    <p class="body-text"><strong>From 1 to 100+ Nodes (No Sweat)</strong></p>
-                    <ul class="technical-list">
-                        <li>🚀 SQLite CMDB supports 1,000+ nodes</li>
-                        <li>🚀 WAL mode allows concurrent access</li>
-                        <li>🚀 Can migrate to PostgreSQL later (SQLAlchemy abstraction)</li>
-                        <li>🚀 Metrics bucketed in 7-day rolling windows</li>
-                        <li>🚀 Data aggregated every 30 seconds (not continuous)</li>
-                        <li>🚀 Old data archived/purged (database stays bounded)</li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>Zero-Touch Provisioning (Hands-Free Setup)</strong></p>
-                    <ul class="technical-list">
-                        <li>🤖 Fresh Fedora box → cluster member automatically</li>
-                        <li>🤖 No SSH, no manual config needed</li>
-                        <li>🤖 Systemd services handle everything</li>
-                        <li>🤖 First boot detects hardware & role</li>
-                        <li>🤖 Joins cluster via mDNS discovery</li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>Disaster Recovery (Sleep Well at Night)</strong></p>
-                    <ul class="technical-list">
-                        <li>💾 30-day rolling backup windows</li>
-                        <li>💾 Incremental backups (fast & efficient)</li>
-                        <li>💾 Rapid restoration of config & state</li>
-                        <li>💾 Tested recovery procedures</li>
-                        <li>💾 Documented runbooks</li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>Failure Handling (Smart, Not Silly)</strong></p>
-                    <ul class="technical-list">
-                        <li>🛡️ Circuit breaker pattern prevents cascade failures</li>
-                        <li>🛡️ Failed node health scores drop automatically</li>
-                        <li>🛡️ System isolates problematic nodes</li>
-                        <li>🛡️ No stuck node can destabilize cluster</li>
-                        <li>🛡️ Graceful degradation (continue without failed node)</li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>Monitoring & Observability</strong></p>
-                    <ul class="technical-list">
-                        <li>📊 Prometheus-compatible metrics export</li>
-                        <li>📊 Integrates with external monitoring stacks</li>
-                        <li>📊 CLI tools for component testing</li>
-                        <li>📊 TUI + Web interfaces for visibility</li>
-                        <li>📊 Comprehensive logging throughout</li>
-                    </ul>
-                    
-                    <p class="body-text"><strong>What Makes Operations Easy</strong></p>
-                    <ul class="technical-list">
-                        <li>📝 Comprehensive documentation</li>
-                        <li>📝 Minimal training required</li>
-                        <li>📝 50+ node clusters manageable by small teams</li>
-                        <li>📝 CLI for automation</li>
-                        <li>📝 Web UI for humans</li>
-                        <li>📝 TUI for headless servers</li>
-                    </ul>
-                </div>
+          </div>
+          <aside class="hero-aside" aria-label="Project framing">
+            <div class="hero-icon-panel">
+              <img src="assets/map2-hero-icon.svg" alt="MAP2 hero icon">
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="card elevation-2">
-            <div class="card-content">
-                <h2 class="section-title">
-                    <span class="material-icons">mail</span>
-                    Contact & Connect
-                </h2>
-                <p class="body-text">
-                    Open to collaboration, product strategy engagements, and technical leadership opportunities. Let's talk about ambitious audio projects, AI integration, or building systems that scale.
-                </p>
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <h4 class="contact-label">Email</h4>
-                        <p class="contact-info">hello@matthewmackes.com</p>
-                    </div>
-                    <div class="contact-item">
-                        <h4 class="contact-label">LinkedIn</h4>
-                        <p class="contact-info">
-                            <a href="https://www.linkedin.com/in/matthewmackes/" target="_blank" class="contact-link">linkedin.com/in/matthewmackes</a>
-                        </p>
-                    </div>
-                    <div class="contact-item">
-                        <h4 class="contact-label">GitHub</h4>
-                        <p class="contact-info">
-                            <a href="https://github.com/matthewmackes" target="_blank" class="contact-link">github.com/matthewmackes</a>
-                        </p>
-                    </div>
-                    <div class="contact-item">
-                        <h4 class="contact-label">Location</h4>
-                        <p class="contact-info">Buffalo, NY</p>
-                    </div>
-                </div>
-                <div style="margin-top: var(--spacing-lg); display: flex; gap: var(--spacing-md);">
-                    <a href="mailto:hello@matthewmackes.com" class="btn-primary">
-                        <span class="material-icons" style="margin-right: 8px; vertical-align: middle;">mail</span>
-                        Email Me
-                    </a>
-                    <a href="https://www.linkedin.com/in/matthewmackes/" target="_blank" class="btn-secondary">
-                        <span class="material-icons" style="margin-right: 8px; vertical-align: middle;">business_center</span>
-                        Connect on LinkedIn
-                    </a>
-                </div>
+            <div class="hero-note panel">
+              <span class="eyebrow">Current framing</span>
+              <p>
+                MAP2 is strongest as an educational and experimental platform. The codebase shows serious depth and real
+                implementation work, but the current evaluation positions it as best suited for learning, tinkering,
+                prototyping, and expert-led exploration rather than broad production deployment.
+              </p>
             </div>
-        </section>
+          </aside>
+        </div>
+      </section>
 
-                <!-- Recent Updates Section -->
-        <section class="card elevation-2">
-            <div class="card-content">
-                <h2 class="section-title">
-                    <span class="material-icons">update</span>
-                    Recent Repository Updates
-                </h2>
-                <p class="caption">Last checked: <span id="last-update-time">Loading...</span></p>
-                
-                <div id="updates-container" class="updates-list">
-                    <div class="loading-state">
-                        <div class="spinner"></div>
-                        <p>Loading recent updates...</p>
-                    </div>
-                </div>
+      <section class="section" id="platform-status">
+        <div class="section-header">
+          <img src="assets/map2-hero-icon.svg" alt="">
+          <div>
+            <h2>Full platform evaluation, in plain language.</h2>
+            <p class="section-intro">
+              MAP2 is not a shallow concept project. It is a technically serious platform with real DSP, plugin,
+              network-audio, MIDI, and deployment breadth. Its main story is not “look at an idea.” It is “look at how
+              a modern Linux audio platform is actually assembled, where it is strong, and where it still needs closure.”
+            </p>
+          </div>
+        </div>
+        <div class="panel-grid">
+          <article class="panel">
+            <span class="eyebrow">What it already proves</span>
+            <h3>Serious implementation depth</h3>
+            <ul class="status-list">
+              <li><strong>Real-time DSP engine:</strong> JUCE-based audio processing with low-latency engineering work.</li>
+              <li><strong>Broad control plane:</strong> FastAPI routes, WebSocket updates, presets, diagnostics, and remote control.</li>
+              <li><strong>Multiple operating surfaces:</strong> browser UI, TUI/SSH workflows, and hardware-oriented control patterns.</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <span class="eyebrow">Why it matters educationally</span>
+            <h3>An observable system instead of a black box</h3>
+            <ul class="status-list">
+              <li><strong>Students</strong> can trace audio from input to output.</li>
+              <li><strong>Musicians</strong> can experiment with real chains, presets, and networked workflows.</li>
+              <li><strong>Audio developers</strong> can study architecture, APIs, and Linux real-time tuning in one place.</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <span class="eyebrow">Current maturity</span>
+            <h3>Ambitious, useful, still experimental</h3>
+            <ul class="status-list">
+              <li><strong>Strongest fit today:</strong> education, amateur experimentation, and expert-led prototyping.</li>
+              <li><strong>Notable caution:</strong> some surfaces are broader than their current validation evidence.</li>
+              <li><strong>Best reading:</strong> a platform to study and build from, not a finished black-box appliance.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="section-header">
+          <img src="assets/map2-hero-icon.svg" alt="">
+          <div>
+            <h2>Feature list.</h2>
+            <p class="section-intro">
+              This site groups the MAP2 feature set into human-readable areas. The underlying platform documentation
+              describes more than fifty platform capabilities, with additional depth across engine APIs, services,
+              hardware integration, and operational tooling.
+            </p>
+          </div>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-card__label">
+              <img src="assets/map2-hero-icon.svg" alt="">
+              Core audio
             </div>
-        </section>
+            <h3>Real-time audio engine</h3>
+            <ul class="feature-list">
+              <li><strong>Low-latency processing:</strong> optimized Linux audio path with real-time scheduling intent.</li>
+              <li><strong>Configurable runtime:</strong> buffer sizes, sample rates, callback timing, and xrun monitoring.</li>
+              <li><strong>Plugin graph control:</strong> chain construction, reordering, bypass, snapshots, and parameter control.</li>
+              <li><strong>Dual-chain workflows:</strong> A/B chains, morphing ideas, and signal-path experimentation.</li>
+            </ul>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__label">
+              <img src="assets/map2-hero-icon.svg" alt="">
+              DSP and effects
+            </div>
+            <h3>Effects and tone processing</h3>
+            <ul class="feature-list">
+              <li><strong>Neural Amp Modeler integration:</strong> AI-based amp simulation as a real study target.</li>
+              <li><strong>Impulse responses:</strong> cabinet and space simulation through convolution workflows.</li>
+              <li><strong>Built-in processors:</strong> dynamics, EQ, filters, pitch, delay, modulation, and reverb families.</li>
+              <li><strong>LV2 hosting:</strong> plugin discovery, loading, and extensibility through third-party processors.</li>
+            </ul>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__label">
+              <img src="assets/map2-hero-icon.svg" alt="">
+              Control layer
+            </div>
+            <h3>API, UI, and observability</h3>
+            <ul class="feature-list">
+              <li><strong>FastAPI backend:</strong> a broad control API for engine, presets, routing, and system state.</li>
+              <li><strong>Web interface:</strong> browser-based control built for remote interaction and live feedback.</li>
+              <li><strong>WebSocket streaming:</strong> live meters, status data, and runtime signals.</li>
+              <li><strong>Health tooling:</strong> diagnostics, performance signals, and deployment-oriented monitoring.</li>
+            </ul>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__label">
+              <img src="assets/map2-hero-icon.svg" alt="">
+              MIDI and workflows
+            </div>
+            <h3>MIDI hub and remote performance control</h3>
+            <ul class="feature-list">
+              <li><strong>MIDI routing:</strong> message handling, mapping, transport, and automation workflows.</li>
+              <li><strong>Preset control:</strong> snapshots, program-style recall, and reusable chain states.</li>
+              <li><strong>Controller integration:</strong> support for musician-facing interaction patterns and live control.</li>
+              <li><strong>Remote operation:</strong> browser and text UI access for headless systems.</li>
+            </ul>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__label">
+              <img src="assets/map2-hero-icon.svg" alt="">
+              Network audio
+            </div>
+            <h3>AVB and multi-node exploration</h3>
+            <ul class="feature-list">
+              <li><strong>AVB study path:</strong> discovery, enumeration, and standards-oriented network audio groundwork.</li>
+              <li><strong>Control-plane clustering:</strong> centralized management of multiple MAP2 nodes.</li>
+              <li><strong>Distributed DSP concepts:</strong> node-to-node processing as a documented design goal.</li>
+              <li><strong>Hardware-aware deployment:</strong> readiness for Intel NIC and timing-sensitive experiments.</li>
+            </ul>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__label">
+              <img src="assets/map2-hero-icon.svg" alt="">
+              System operation
+            </div>
+            <h3>Deployment and platform services</h3>
+            <ul class="feature-list">
+              <li><strong>Linux appliance mindset:</strong> systemd services, installer work, and host-level tuning.</li>
+              <li><strong>PipeWire and JACK:</strong> Linux audio backend flexibility and routing experiments.</li>
+              <li><strong>Persistence:</strong> database-backed presets, configuration state, and cached metadata.</li>
+              <li><strong>Documentation depth:</strong> runbooks, qualification notes, and architecture references.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
+      <section class="section" id="education">
+        <div class="section-header">
+          <img src="assets/map2-hero-icon.svg" alt="">
+          <div>
+            <h2>A human-understandable description of the platform.</h2>
+            <p class="section-intro">
+              Mackes Audio Platform is easiest to understand if you think of it as a learning laboratory for modern
+              digital audio. It turns a Linux machine into a configurable audio processor, but the important part is
+              that the system stays open enough to study.
+            </p>
+          </div>
+        </div>
+        <div class="architecture-grid">
+          <article class="panel">
+            <span class="eyebrow">Plain-language description</span>
+            <p class="list-description">
+              MAP2 shows how professional-style audio processing can be built from normal computing hardware and open
+              software. Instead of hiding the signal path, scheduler decisions, plugin loading, network interfaces, and
+              control logic, it exposes them. That makes it useful for musicians who want to learn how their tools work,
+              and for audio developers who want to inspect a complete, multi-layer system rather than isolated code
+              samples.
+            </p>
+            <ul class="detail-list">
+              <li><strong>For musicians:</strong> it behaves like a configurable effects and routing platform that can be explored, not just used.</li>
+              <li><strong>For audio developers:</strong> it is a case study in combining DSP, APIs, UI, and Linux system tuning.</li>
+              <li><strong>For students:</strong> it demonstrates concepts like real-time threads, plugin hosting, network audio, and control surfaces in one project.</li>
+            </ul>
+          </article>
+          <article class="callout">
+            <strong>Educational purpose:</strong> MAP2 is valuable because it is transparent. It gives learners a working
+            reference for how low-latency Linux audio systems are assembled, where the engineering tradeoffs are, and how
+            audio software, operating systems, and interfaces meet in practice.
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="architecture">
+        <div class="section-header">
+          <img src="assets/map2-hero-icon.svg" alt="">
+          <div>
+            <h2>Detailed architecture.</h2>
+            <p class="section-intro">
+              The educational value is strongest when the platform is read as three connected layers. Each layer is
+              understandable on its own, but the real lesson is how they interact.
+            </p>
+          </div>
+        </div>
+        <div class="architecture-grid">
+          <div class="architecture-stack">
+            <article class="stack-card">
+              <span class="eyebrow">Layer 1</span>
+              <h3>JUCE / C++ audio engine</h3>
+              <p>
+                This is the time-critical part of the platform. It handles DSP, plugin processing, real-time audio
+                callback behavior, signal chains, and low-latency execution concerns.
+              </p>
+              <ul class="architecture-list">
+                <li><strong>Why it exists:</strong> real-time audio work demands predictable execution and tight memory control.</li>
+                <li><strong>What it teaches:</strong> callback design, plugin hosting, DSP composition, and performance tradeoffs.</li>
+              </ul>
+            </article>
+            <article class="stack-card">
+              <span class="eyebrow">Layer 2</span>
+              <h3>Python / FastAPI control plane</h3>
+              <p>
+                This layer manages the platform. It exposes API routes, handles orchestration, tracks presets and state,
+                coordinates services, and provides a bridge between the engine and the user-facing tools.
+              </p>
+              <ul class="architecture-list">
+                <li><strong>Why it exists:</strong> higher-level control tasks do not belong inside the hard real-time layer.</li>
+                <li><strong>What it teaches:</strong> API design, async service boundaries, persistence, and remote control patterns.</li>
+              </ul>
+            </article>
+            <article class="stack-card">
+              <span class="eyebrow">Layer 3</span>
+              <h3>Web UI and operator surfaces</h3>
+              <p>
+                The browser interface turns system capabilities into something visible and interactive. MAP2 also extends
+                that idea through TUI and hardware-oriented controls for remote or embedded-style use.
+              </p>
+              <ul class="architecture-list">
+                <li><strong>Why it exists:</strong> a platform this broad needs usable control surfaces, not only config files.</li>
+                <li><strong>What it teaches:</strong> real-time UI feedback, operational information architecture, and remote administration.</li>
+              </ul>
+            </article>
+          </div>
+          <article class="panel">
+            <span class="eyebrow">Cross-layer lessons</span>
+            <h3>What the whole platform demonstrates</h3>
+            <ul class="detail-list">
+              <li><strong>Separation of concerns:</strong> the DSP engine does the time-critical work while Python handles management and the web UI handles interaction.</li>
+              <li><strong>Linux as an audio host:</strong> system tuning, service orchestration, and device/runtime behavior matter as much as code.</li>
+              <li><strong>Audio networking:</strong> AVB and clustering show how single-box processing can evolve toward distributed workflows.</li>
+              <li><strong>Product honesty:</strong> the platform is broad enough to be useful, and unfinished enough to be educational in a very practical way.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="use-cases">
+        <div class="section-header">
+          <img src="assets/map2-hero-icon.svg" alt="">
+          <div>
+            <h2>Use cases.</h2>
+            <p class="section-intro">
+              MAP2 is most compelling when used as a platform for exploration, learning, and small-scale practical
+              workflows. These use cases align with what the current codebase and documentation show most clearly.
+            </p>
+          </div>
+        </div>
+        <div class="use-case-grid">
+          <article class="use-case-card">
+            <h3>Learning real-time Linux audio</h3>
+            <p>Study how scheduling, isolated CPU work, plugin graphs, and callback timing affect a working DSP platform.</p>
+          </article>
+          <article class="use-case-card">
+            <h3>Building guitar and bass rigs</h3>
+            <p>Experiment with amp modeling, impulse responses, effects chains, MIDI control, and preset recall on Linux.</p>
+          </article>
+          <article class="use-case-card">
+            <h3>Teaching DSP and systems design</h3>
+            <p>Use one codebase to explain audio processing, APIs, UI control, persistence, and deployment workflows together.</p>
+          </article>
+          <article class="use-case-card">
+            <h3>Prototyping audio products</h3>
+            <p>Explore signal-flow concepts, control schemes, and remote management ideas before narrowing them into a smaller product.</p>
+          </article>
+          <article class="use-case-card">
+            <h3>Studying network audio concepts</h3>
+            <p>Use AVB, discovery, and multi-node documentation as a practical path into deterministic audio-over-Ethernet systems.</p>
+          </article>
+          <article class="use-case-card">
+            <h3>Headless and remote audio control</h3>
+            <p>Operate a Linux-based audio system from the browser or terminal without depending on a full local desktop workflow.</p>
+          </article>
+          <article class="use-case-card">
+            <h3>Amateur recording and practice setups</h3>
+            <p>Turn spare hardware into a customizable audio processor for home labs, practice rooms, and experimentation benches.</p>
+          </article>
+          <article class="use-case-card">
+            <h3>Inspecting full-stack engineering tradeoffs</h3>
+            <p>See where a broad platform is strong, where maturity is uneven, and why product closure matters as much as feature count.</p>
+          </article>
+          <article class="use-case-card">
+            <h3>Exploring alternative open audio tooling</h3>
+            <p>Use MAP2 as a reference point for what an open, Linux-first musician platform can look like outside commercial black boxes.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="links">
+        <div class="section-header">
+          <img src="assets/map2-hero-icon.svg" alt="">
+          <div>
+            <h2>Key links.</h2>
+            <p class="section-intro">
+              The site is intentionally simple: one page, one clear primary action, and direct paths to the software,
+              documentation, and contact surface.
+            </p>
+          </div>
+        </div>
+        <div class="link-grid">
+          <article class="link-card">
+            <span class="eyebrow">Primary action</span>
+            <h3><a href="https://github.com/matthewmackes/MAP2-RELEASES/tree/main/nightly" target="_blank" rel="noreferrer">Download a Nightly</a></h3>
+            <p>Get the current nightly build stream for hands-on evaluation and testing.</p>
+          </article>
+          <article class="link-card">
+            <span class="eyebrow">Platform source</span>
+            <h3><a href="https://github.com/matthewmackes/map2-audio" target="_blank" rel="noreferrer">MAP2 source repository</a></h3>
+            <p>Review the engine, backend, UI, documentation, and deployment code.</p>
+          </article>
+          <article class="link-card">
+            <span class="eyebrow">Project docs</span>
+            <h3><a href="https://github.com/matthewmackes/map2-audio/blob/main/README.md" target="_blank" rel="noreferrer">Read the docs</a></h3>
+            <p>Start from the main repository README and related documentation files.</p>
+          </article>
+          <article class="link-card">
+            <span class="eyebrow">Contact</span>
+            <h3><a href="https://www.linkedin.com/in/matthewmackes/" target="_blank" rel="noreferrer">LinkedIn</a></h3>
+            <p>Follow the work or reach out through the existing public profile.</p>
+          </article>
+        </div>
+      </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p class="body-text">© 2026 Matthew Mackes. Built with Material Design.</p>
-            <p class="caption">Auto-updated hourly with the latest repository changes.</p>
-        </div>
+      <div class="page-shell footer-grid">
+        <img src="assets/map2-hero-icon.svg" alt="MAP2 icon">
+        <p>
+          Mackes Audio Platform is presented here as an educational and amateur-friendly platform for studying Linux
+          audio, DSP, control systems, and networked workflows.
+        </p>
+      </div>
     </footer>
-
-    <!-- Scripts -->
-    <script src="assets/js/site.js"></script>
-
-    <!-- JSON-LD Structured Data for Search Engines -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Matthew Mackes",
-        "description": "Product & Engineering Leader focused on intelligent audio platforms",
-        "url": "https://matthewmackes.github.io",
-        "image": "https://avatars.githubusercontent.com/u/49801660?v=4",
-        "sameAs": [
-            "https://www.linkedin.com/in/matthewmackes/",
-            "https://github.com/matthewmackes"
-        ],
-        "jobTitle": "Product & Engineering Leader",
-        "expertise": [
-            "Audio Systems",
-            "Real-time DSP",
-            "AI/ML Integration",
-            "Systems Leadership",
-            "Performance Optimization",
-            "Product Strategy"
-        ],
-        "workLocation": {
-            "@type": "City",
-            "name": "Buffalo, NY"
-        }
-    }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://matthewmackes.github.io"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "About",
-                "item": "https://matthewmackes.github.io#about"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Featured Project",
-                "item": "https://matthewmackes.github.io#featured"
-            },
-            {
-                "@type": "ListItem",
-                "position": 4,
-                "name": "Contact",
-                "item": "https://matthewmackes.github.io#contact"
-            }
-        ]
-    }
-    </script>
-</body>
+  </body>
 </html>
