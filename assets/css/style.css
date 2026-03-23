@@ -598,6 +598,19 @@ img {
   font-size: 1rem;
 }
 
+.section-visual {
+  margin-bottom: var(--cds-spacing-08);
+  padding: var(--cds-spacing-05);
+  background: linear-gradient(180deg, rgba(38, 38, 38, 0.96), rgba(20, 23, 25, 0.96));
+  border: 1px solid var(--cds-border-subtle-00);
+  box-shadow: var(--hero-shadow);
+}
+
+.section-visual img {
+  width: 100%;
+  height: auto;
+}
+
 .panel-grid,
 .feature-grid,
 .use-case-grid,
