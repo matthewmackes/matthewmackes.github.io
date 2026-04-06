@@ -1,0 +1,34 @@
+Title: Moving Forward. Testing, Bug Hunting
+Date: 2026-04-06
+Link: None Today
+---
+From **March 7, 2026 to April 6, 2026**, the codebase changed in several major ways:
+
+1. **The snapshot system was substantially redesigned**
+This was the largest area of change. The team expanded the snapshot editor, improved activation flows, added undo history, favorites, duplication, setlist ordering, validation, live-state feedback, and safety checks before activation. On the backend, snapshot logic was increasingly moved into a new **State Authority** architecture, which now handles documents, revisions, activation, graph structure, validation, reconciliation, persistence, and template CRUD operations.
+
+2. **Performance Brain became a much more developed platform feature**
+The project introduced and then rapidly expanded the **Performance Brain** system. It now includes dedicated backend routes and services, frontend pages and controls, websocket synchronization, route-state persistence, qualification telemetry, media support, and workspace handoff behavior for areas like Drums and SynthForge. Additional work ensured Brain state can be synchronized with the central audio-state authority and restored correctly during snapshot activation.
+
+3. **JUCE engine integration deepened**
+The JUCE engine gained new **graph-document bindings**, **quad morph bindings**, and crossfade-related activation support. The engine runtime was also used more directly for snapshot morph behavior. Supporting Python bindings and automated tests were added to verify these engine-facing features.
+
+4. **MIDI Hub expanded into a more complete subsystem**
+MIDI Hub saw major feature growth, including a routing matrix UI, patchbay editor, preset slots, scripting support, clock controls, OSC and network bridge controls, traffic monitoring, and MIDI 2 readiness surfaces. The codebase also added stronger integration between the JUCE engine and MidiHub infrastructure.
+
+5. **The frontend received broad UX and responsive design upgrades**
+A large amount of web work focused on usability and layout consistency. This included mobile navigation, fullscreen dialog behavior, home page mobile layout, MPX1 mobile UX improvements, and broader UI refinement across the Snapshot Editor, JUCE Grid, Home, and platform workspaces. The frontend appears to have moved toward a more polished and consistent shell.
+
+6. **Platform navigation and workspace organization were restructured**
+The application added or refined workspaces such as **Audio Engine**, **AVB Routing**, **Cluster Dashboard**, and **Audio Artifacts**, while also reworking navigation and launcher behavior. This suggests a broader effort to make the platform feel more unified and operationally structured.
+
+7. **The drum machine feature set advanced significantly**
+The last 30 days included extensive work on drum sequencing and performance control. New development covered sequencer logic, song mode, websocket sync, kit APIs, MIDI mapping, velocity curves, pad zones, MIDI learn, per-track swing, loop lengths, parameter locks, micro-timing, probability, ratchets, and quantized pattern switching.
+
+8. **Tesira support and backend API quality both improved**
+Tesira-related work expanded block parity, editor coverage, native design compile support, and Carbon-based interface consistency. At the same time, the backend gained stronger API auth modeling, contract standards, API inventory work, latency budget gates, recovery hardening, and broader route-level test coverage.
+
+9. **Testing, diagnostics, and CI coverage increased**
+Recent changes were backed by many new tests across snapshots, Brain services, JUCE bindings, drum routes, and backend APIs. The repository also added or validated a **nightly release pipeline** and expanded CI coverage for Tesira, MIDI Hub, and responsive frontend work.
+
+In short, the last 30 days were dominated by four themes: **snapshot architecture redesign, Performance Brain expansion, deeper engine integration, and major platform/UI growth**. The codebase did not just receive small fixes; it was actively reshaped across backend services, engine bindings, frontend workflows, and test coverage.
