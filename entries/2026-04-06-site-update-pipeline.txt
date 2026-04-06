@@ -1,0 +1,7 @@
+Title: Text-file update pipeline enabled
+Date: 2026-04-06
+Link: https://github.com/matthewmackes/matthewmackes.github.io/tree/main/entries
+---
+The site now supports a simple content flow: add a text file in the entries/ directory and the updates section is regenerated during the GitHub Pages deploy workflow.
+
+This keeps the site static and easy to maintain while removing the need to hand-edit the HTML for routine project notes.

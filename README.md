@@ -20,9 +20,12 @@ The site presents MAP2 as:
 ## Structure
 
 - `index.html`: one-page site markup
+- `entries/*.txt`: plain text update entries that generate the homepage updates section
+- `scripts/build_entries.py`: regenerates the updates section in `index.html`
 - `assets/css/style.css`: Carbon-inspired dark theme and layout
 - `assets/map2-hero-icon.svg`: MAP2 icon used throughout the site
 
 ## Deployment
 
 The repo uses GitHub Pages with the static deployment workflow in `.github/workflows/deploy-static-site.yml`.
+That workflow runs `python3 scripts/build_entries.py`, so adding a new `entries/*.txt` file and pushing to `main` is enough to publish a new homepage update.
