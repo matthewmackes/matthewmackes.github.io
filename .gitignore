@@ -12,6 +12,8 @@ temp_project/
 .vscode/
 .idea/
 *.log
+*.pyc
+__pycache__/
 dist/
 # Personal system files
 .bash_history
