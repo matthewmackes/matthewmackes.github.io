@@ -764,6 +764,10 @@ img {
   height: auto;
 }
 
+.section-visual .list-description {
+  margin-top: var(--cds-spacing-05);
+}
+
 .panel-grid,
 .feature-grid,
 .use-case-grid,
