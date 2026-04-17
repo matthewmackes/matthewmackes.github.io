@@ -1,0 +1,68 @@
+Title: Moving Forward. Testing, Bug Hunting
+Date: 2026-04-06
+Link: None Today
+
+
+
+
+What We Created: The Maschine MK1 Project
+The Problem
+Native Instruments made a music controller called the Maschine MK1 back in 2011. It's a physical box with 16 pressure-sensitive drum pads, 42 backlit buttons, 11 rotary knobs (encoders), and two small LCD screens — all designed to help musicians make beats and control music software.
+
+The catch: NI only ever made it work with their own Windows/Mac software. On Linux, the device just sits there dead. No lights, no screens, no response when you hit the pads. Linux sees it on the USB bus but has no idea how to talk to it.
+
+What Makes This Hard
+The Maschine MK1 doesn't use standard USB protocols. Most USB devices identify themselves as a keyboard, mouse, or audio device using well-documented standards. The MK1 uses raw USB bulk transfers — meaning it speaks a private, undocumented language that NI never published.
+
+To make it work, we had to figure out the exact byte sequences the device expects. For example:
+
+To light up an LED, you send two 33-byte packets to USB endpoint 0x01, starting with the bytes 0x0C 0x00 for the first 31 LEDs and 0x0C 0x1E for the next 31
+Before any LED command works, you have to send a 4-byte "primer" (0x0B 0xFF 0x02 0x05)
+The LCD screens need a 22-step initialization sequence with specific timing delays, then accept pixel data in a packed format where 3 pixels fit into every 2 bytes
+The pads report pressure as pairs of bytes where the pad number is hidden in the upper 4 bits and the pressure (0–4095) is spread across 12 bits of both bytes
+None of this is documented anywhere. We reverse-engineered it from an open-source C++ project called cabl and translated it into Python.
+
+What We Built
+A complete driver and control system that makes the Maschine MK1 a fully functional instrument on Linux, with a web-based control panel for configuration.
+
+Here's the stack, bottom to top:
+
+USB Transport Layer (mk1_usb_transport.py) — Opens the raw USB device, claims the interface, manages four simultaneous data channels (two for sending LED/LCD data out, two for receiving pad/button/encoder data in), and keeps a background thread constantly draining the pad input so the output channels don't jam up.
+
+Protocol Encoder/Decoder (mk1_protocol.py) — Pure math, no hardware access. Converts human-readable commands ("light pad 5 at brightness 200") into the exact byte sequences the device needs, and converts raw input bytes back into meaningful events ("pad 3 pressed with pressure 2847").
+
+Daemon Process (maschine_mk1_daemon.py) — A background service that runs three threads simultaneously: one reads pad/button/encoder input and converts it to MIDI messages, one drives the LCD screens with live status displays, and one manages LED feedback. It connects to our audio platform's backend over WebSocket to stay synchronized.
+
+MIDI Output — Every physical action becomes a standard MIDI message sent to a virtual ALSA port called MAP2:Maschine-MK1. Any music software on the system (Ardour, Carla, Pure Data) can receive these messages. Pads send Note On/Off with velocity proportional to how hard you hit them. Buttons send Control Change messages. Encoders send relative CC values.
+
+LCD Renderer — Generates real-time status displays on the MK1's two 255×64 pixel screens showing what audio plugins are loaded, which parameters the encoders control, CPU usage, and buffer statistics.
+
+Web Control Panel (/maschine) — A full dashboard in the browser showing:
+
+Live connection status with the physical device
+A visual replica of all 62 LEDs with real-time brightness
+A simulator of both LCD screens rendered from the same data the hardware displays
+An input monitor showing every pad press, button click, and encoder turn as it happens
+A hardware test suite that can walk LEDs, draw test patterns on the LCDs, and verify pad input
+USB protocol details (endpoints, packet sizes, data formats)
+MIDI Map Editor (/maschine/midi-map) — A visual interface laid out like the physical hardware where you can:
+
+Click any pad, button, or encoder to change what MIDI message it sends
+Drag a slider on any element to control its LED brightness in real time on the hardware
+Choose between Note, CC, or Program Change for any button
+Set velocity curves (linear, logarithmic, exponential) for each pad
+Switch encoders between relative and absolute mode
+Turn on "Listen Mode" and physically press buttons on the MK1 to see them highlight in the GUI
+Save your configuration as the default for the unit
+What It Took
+The device had been plugged into this Linux machine the whole time, but the original code in the project was completely fabricated — it tried to talk to the MK1 as an HID device (which it isn't) using made-up packet formats that the hardware silently ignored. Every test passed because the tests were checking the fake protocol against itself.
+
+We had to:
+
+Blacklist the Linux kernel's default audio driver (snd_usb_caiaq) that was claiming the USB interface before our code could reach it
+Discover through 17 diagnostic iterations that the device's output endpoint locks up unless you're simultaneously reading from the pad input endpoint — a hardware quirk not documented anywhere
+Figure out that the LCD panel has inverted polarity (0xFF = dark, 0x00 = bright), opposite of what you'd expect
+Map the non-sequential LED indices (hardware pad 1 is at LED array position 3, pad 13 is at position 15, etc.)
+Build a systemd service so the daemon starts automatically and runs with real-time thread priority
+The Result
+A piece of hardware that was a paperweight on Linux is now a fully operational musical instrument and control surface, with every LED, every LCD pixel, every pad, every button, and every encoder working and configurable through a web browser. The configuration persists across reboots, and the whole system is integrated into the MAP2 Audio Platform alongside professional audio routing, plugin hosting, and multi-device management.
