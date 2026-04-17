@@ -2,7 +2,7 @@ Title: "MAP adds Maschine MK1 as a (not) supported, but, Hey! its works!"
 Date: 2026-04-17
 Link: None
 ---
-
+---
 What We Created: The Maschine MK1 Project
 The Problem
 Native Instruments made a music controller called the Maschine MK1 back in 2011. It's a physical box with 16 pressure-sensitive drum pads, 42 backlit buttons, 11 rotary knobs (encoders), and two small LCD screens — all designed to help musicians make beats and control music software.
