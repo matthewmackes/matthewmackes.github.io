@@ -1,9 +1,6 @@
-Title: MAP adds Maschine MK1 as a (not) supported, but, Hey! its works!
+Title: "MAP adds Maschine MK1 as a (not) supported, but, Hey! its works!"
 Date: 2026-04-17
-Link: None Today
-
-
-
+Link: None
 
 What We Created: The Maschine MK1 Project
 The Problem
