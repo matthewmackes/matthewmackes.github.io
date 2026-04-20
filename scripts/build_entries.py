@@ -58,45 +58,47 @@ def parse_entry(path: Path) -> Entry:
         raise ValueError("entry body must contain at least one paragraph")
 
     link = fields.get("link")
+    if link and (link.lower().startswith("none") or not link.lower().startswith(("http://", "https://"))):
+        link = None
     return Entry(
         title=fields["title"],
         entry_date=entry_date,
-        link=link if link else None,
+        link=link,
         body_paragraphs=paragraphs,
         source_name=path.name,
     )
 
 
 def format_human_date(value: date) -> str:
-    return value.strftime("%B %d, %Y").replace(" 0", " ")
+    return value.strftime("%b %d, %Y").replace(" 0", " ")
 
 
 def render_entry(entry: Entry) -> str:
     safe_title = escape(entry.title)
     body_html = "\n".join(
-        f"            <p>{escape(paragraph)}</p>" for paragraph in entry.body_paragraphs
+        f"              <p>{escape(paragraph)}</p>" for paragraph in entry.body_paragraphs
     )
     link_html = ""
     if entry.link:
         safe_link = escape(entry.link, quote=True)
         link_html = (
             "\n"
-            '            <p class="update-card__link">\n'
-            f'              <a href="{safe_link}" target="_blank" rel="noreferrer">Read more</a>\n'
-            "            </p>"
+            '              <p class="update__link">\n'
+            f'                <a href="{safe_link}" target="_blank" rel="noreferrer">Read more →</a>\n'
+            "              </p>"
         )
 
     return (
-        "          <article class=\"update-card\">\n"
-        "            <div class=\"update-card__meta\">\n"
-        "              <span class=\"eyebrow\">Update</span>\n"
-        f"              <time datetime=\"{entry.entry_date.isoformat()}\">{format_human_date(entry.entry_date)}</time>\n"
+        "          <article class=\"update\">\n"
+        "            <div class=\"update__date\">\n"
+        f"              <b>{format_human_date(entry.entry_date)}</b>\n"
+        f"              <span>entries/{escape(entry.source_name)}</span>\n"
         "            </div>\n"
-        f"            <h3>{safe_title}</h3>\n"
-        "            <div class=\"update-card__body\">\n"
-        f"{body_html}\n"
-        "            </div>"
+        "            <div class=\"update__body\">\n"
+        f"              <h3>{safe_title}</h3>\n"
+        f"{body_html}"
         f"{link_html}\n"
+        "            </div>\n"
         "          </article>"
     )
 
@@ -104,13 +106,10 @@ def render_entry(entry: Entry) -> str:
 def render_entries(entries: list[Entry]) -> str:
     if not entries:
         return (
-            "          <article class=\"update-card\">\n"
-            "            <div class=\"update-card__meta\">\n"
-            "              <span class=\"eyebrow\">Update</span>\n"
-            "              <span>No entries yet</span>\n"
-            "            </div>\n"
-            "            <h3>Add a text file to publish an update</h3>\n"
-            "            <div class=\"update-card__body\">\n"
+            "          <article class=\"update\">\n"
+            "            <div class=\"update__date\"><b>—</b><span>entries/</span></div>\n"
+            "            <div class=\"update__body\">\n"
+            "              <h3>Add a text file to publish an update</h3>\n"
             "              <p>Create a <code>.txt</code> file in <code>entries/</code> with <code>Title</code>, <code>Date</code>, an optional <code>Link</code>, and a body below <code>---</code>.</p>\n"
             "            </div>\n"
             "          </article>"
