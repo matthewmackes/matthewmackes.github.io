@@ -1,0 +1,21 @@
+Title: What is this? 
+Date: 2026-04-24
+Link: None Today
+---
+
+The Mackes Audio Platform (MAP)2
+
+It is a Guitar (or Any Instrument) multi channel Effects Processor with NAM,IR and LV2 Support
+It is a Drum Machine, Brain, Sequencer
+It is a Keyboard MIDI Brain, Sequencer
+It is Multi Channel, Multi Track, Multi Workload, Multi Node, with Failover.
+It excels at taking ordinary MIDI devices and making the awesome
+It is a AVB Talker and Listener
+It has extensive methods to track changes, confirm and control audio workflows (Single Source of Truth, No Split Brain)
+
+It is an RPM installed on Fedora Linux (server)
+It is Mostly React, Textual, and Python scripts + JUCE
+It leverages standard Fedora Packages for EVERYTHING else.
+It is a set of Clustered Services (If you choose)
+It is a stand alone (Single PC) if you choose
+
