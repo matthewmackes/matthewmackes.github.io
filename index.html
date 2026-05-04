@@ -55,6 +55,7 @@
         <nav class="nav__links" aria-label="Primary">
           <a href="#platform">Platform</a>
           <a href="#architecture">Architecture</a>
+          <a href="#service-design">Service design</a>
           <a href="#features">Features</a>
           <a href="#updates">Updates</a>
           <a href="#install">Install</a>
@@ -244,6 +245,68 @@
               </button>
             </div>
             <aside class="arch__detail" id="arch-detail" aria-live="polite"></aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FIRST-CLASS SERVICES ============ -->
+      <section class="section" id="service-design">
+        <div class="shell">
+          <div class="section__head">
+            <div>
+              <p class="section__eyebrow">First-class services</p>
+              <h2 class="h1">How MAP2 service offerings are designed.</h2>
+            </div>
+            <p class="lead">
+              MAP2 documents four first-class service offerings. The design rule is consistent across all four:
+              a canonical operator surface plus a canonical authority model, with consumer projections layered on top.
+            </p>
+          </div>
+
+          <div class="services" role="list" aria-label="MAP2 first-class service offerings">
+            <article class="service-card" role="listitem">
+              <p class="service-card__label">MIDI Services</p>
+              <h3>Unified control and binding authority</h3>
+              <ul class="service-card__list">
+                <li><strong>Canonical surface:</strong> <code class="mono">/midi</code> (legacy <code class="mono">/midi-hub/*</code> redirects).</li>
+                <li><strong>Canonical authority:</strong> <code class="mono">MidiBinding</code> via <code class="mono">MidiBindingAuthority</code>.</li>
+                <li><strong>Design intent:</strong> snapshot editors, Brain, and device-pack tools are projections over one binding source of truth.</li>
+              </ul>
+              <p class="service-card__ref"><a href="https://github.com/matthewmackes/map2-audio/blob/main/docs/architecture/MIDI_SERVICES.md" target="_blank" rel="noreferrer">Architecture reference ↗</a></p>
+            </article>
+
+            <article class="service-card" role="listitem">
+              <p class="service-card__label">AVB Services</p>
+              <h3>Deterministic stream authority for network audio</h3>
+              <ul class="service-card__list">
+                <li><strong>Canonical surface:</strong> <code class="mono">/avb/*</code> (including Tesira under <code class="mono">/avb/devices/tesira/*</code>).</li>
+                <li><strong>Canonical authority:</strong> <code class="mono">AvbBindingAuthority</code> for talker/listener stream intent and cluster scope.</li>
+                <li><strong>Design intent:</strong> one binding model for matrix routing, peer fan-out, and node-level reconciliation.</li>
+              </ul>
+              <p class="service-card__ref"><a href="https://github.com/matthewmackes/map2-audio/blob/main/docs/architecture/AVB_SERVICES.md" target="_blank" rel="noreferrer">Architecture reference ↗</a></p>
+            </article>
+
+            <article class="service-card" role="listitem">
+              <p class="service-card__label">Sampler Services</p>
+              <h3>Canonical asset and instrument model</h3>
+              <ul class="service-card__list">
+                <li><strong>Canonical surface (planned):</strong> <code class="mono">/sampler</code> for library and instrument lifecycle.</li>
+                <li><strong>Canonical authority (planned):</strong> <code class="mono">SampleAsset</code> + <code class="mono">SamplerInstrument</code>.</li>
+                <li><strong>Design intent:</strong> absorb Brain library scanning and Synthforge/NAM-facing asset workflows into one persistent authority.</li>
+              </ul>
+              <p class="service-card__ref"><a href="https://github.com/matthewmackes/map2-audio/blob/main/docs/architecture/SAMPLER_SERVICES.md" target="_blank" rel="noreferrer">Architecture reference ↗</a></p>
+            </article>
+
+            <article class="service-card" role="listitem">
+              <p class="service-card__label">Audio Effects Services</p>
+              <h3>State-authority-driven chain and automation control</h3>
+              <ul class="service-card__list">
+                <li><strong>Canonical surface (planned):</strong> <code class="mono">/effects</code> for chain authoring and runtime-effect control.</li>
+                <li><strong>Canonical authority:</strong> State Authority graph + snapshot activation FSM.</li>
+                <li><strong>Design intent:</strong> retire parallel chain/effects stores by treating them as projections over canonical graph state.</li>
+              </ul>
+              <p class="service-card__ref"><a href="https://github.com/matthewmackes/map2-audio/blob/main/docs/architecture/AUDIO_EFFECTS_SERVICES.md" target="_blank" rel="noreferrer">Architecture reference ↗</a></p>
+            </article>
           </div>
         </div>
       </section>
